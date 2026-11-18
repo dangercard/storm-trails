@@ -1,0 +1,406 @@
+.app {
+  position: relative;
+  height: 100%;
+}
+
+.map {
+  position: absolute;
+  inset: 0;
+}
+
+/* The side panel (a bottom sheet on narrow screens) */
+.panel {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  bottom: 12px;
+  width: 336px;
+  overflow-y: auto;
+  padding: 16px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+  z-index: 2;
+}
+
+@media (max-width: 759px) {
+  .panel {
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    max-height: 45vh;
+    border-radius: 12px 12px 0 0;
+    border-bottom: 0;
+  }
+}
+
+.panel-head h1 {
+  margin: 0;
+  font-size: 1.35rem;
+  letter-spacing: 0.01em;
+}
+
+.panel-head p {
+  margin: 2px 0 14px;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.small {
+  font-size: 0.82rem;
+}
+
+.field {
+  margin-bottom: 14px;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+
+.chip:hover {
+  border-color: var(--muted);
+}
+
+.chip.on {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #062226;
+}
+
+.search {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #0b0e14;
+  color: var(--text);
+  font: inherit;
+}
+
+/* Year range: two range inputs over one track */
+.year-range-values {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 1.15rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.year-range-dash {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.year-range-track {
+  position: relative;
+  height: 28px;
+  margin: 2px 0;
+}
+
+.year-range-track::before,
+.year-range-fill {
+  content: '';
+  position: absolute;
+  top: 12px;
+  height: 4px;
+  border-radius: 2px;
+}
+
+.year-range-track::before {
+  left: 0;
+  right: 0;
+  background: var(--line);
+}
+
+.year-range-fill {
+  background: var(--accent);
+}
+
+.year-range-track input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  margin: 0;
+  background: none;
+  pointer-events: none;
+  appearance: none;
+}
+
+.year-range-track input::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--text);
+  border: 2px solid var(--bg);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.year-range-track input::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--text);
+  border: 2px solid var(--bg);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.year-range-ends {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* The list */
+.count {
+  margin: 4px 0 6px;
+}
+
+.list {
+  list-style: none;
+  margin: 0 -8px;
+  padding: 0;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 6px 8px;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.row:hover,
+.row:focus-visible {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.dot {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  color: #10141c;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.row-name {
+  flex: 1;
+  min-width: 0;
+}
+
+.row-sub {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.row-wind {
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.link {
+  margin-top: 10px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.about p {
+  margin: 8px 0;
+  color: var(--muted);
+}
+
+/* One storm */
+.detail-head {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.detail-head h2 {
+  margin: 0 0 4px;
+  font-size: 1.35rem;
+}
+
+.detail-season {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.back {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: none;
+  cursor: pointer;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: #10141c;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.provisional {
+  margin-left: 6px;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 12px;
+  margin: 0 0 14px;
+  font-size: 0.9rem;
+}
+
+.stats dt {
+  color: var(--muted);
+}
+
+.stats dd {
+  margin: 0;
+}
+
+.chart {
+  margin: 0;
+}
+
+.chart figcaption {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.chart svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.chart-grid {
+  stroke: var(--line);
+  stroke-width: 0.6;
+}
+
+.chart-label {
+  fill: var(--muted);
+  font-size: 8px;
+}
+
+.chart-line {
+  fill: none;
+  stroke: var(--text);
+  stroke-width: 1.2;
+  opacity: 0.7;
+}
+
+/* Legend, bottom right */
+.legend {
+  position: absolute;
+  right: 12px;
+  bottom: 28px;
+  display: flex;
+  gap: 10px;
+  padding: 6px 10px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 0.78rem;
+  z-index: 1;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.legend-item i {
+  width: 14px;
+  height: 4px;
+  border-radius: 2px;
+}
+
+.legend-item i.dashed {
+  background: repeating-linear-gradient(90deg, currentColor 0 4px, transparent 4px 7px);
+}
+
+@media (max-width: 759px) {
+  .legend {
+    top: 10px;
+    bottom: auto;
+    left: 10px;
+    right: auto;
+    gap: 6px;
+  }
+}
+
+/* Point popup on the chosen storm */
+.point-popup .maplibregl-popup-content {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--line);
+  padding: 8px 10px;
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.point-popup .maplibregl-popup-tip {
+  display: none;
+}
