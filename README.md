@@ -1,4 +1,4 @@
-# Storm Tracks
+# Wind Reach
 
 Every tropical cyclone on record, worldwide since 1842, on a map: pick a range of seasons, basins and a minimum
 strength, and see the paths coloured by strength. Narrow it to storms that passed near a country, a city or a spot
@@ -11,7 +11,7 @@ report (`?view=report`) gives how many storms passed, how often, how strong they
 a track map and a table of every one; it prints or saves as PDF and downloads as CSV or GeoJSON. Choose a storm for its dates, peak wind, lowest pressure, energy (ACE), the
 countries it made landfall in and its wind over its life.
 
-The site's name is a placeholder, set in one place: `VITE_APP_NAME` in `.env`.
+The site's name is set in one place, `VITE_APP_NAME` in `.env`; its home is windreach.org.
 
 React + Vite + MapLibre GL, with an OpenFreeMap basemap (no API key).
 
