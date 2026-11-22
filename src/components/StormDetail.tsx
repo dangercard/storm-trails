@@ -1,22 +1,35 @@
-import { BASINS, category, kt, TROPICAL } from '../data/categories';
-import { displayName, formatDate, type Storm, type TrackPoint } from '../data/storms';
+import { basinName, category, categoryLabel, kt, regional, termOf, TROPICAL } from '../data/categories';
+import { download, fileName, pointsCsv, tracksGeoJson } from '../data/exports';
+import { widest } from '../data/footprint';
+import { basinAt, displayName, formatDate, type Radii, type Storm, type TrackPoint } from '../data/storms';
+import { countryName, useI18n } from '../i18n';
 
 interface StormDetailProps {
   storm: Storm;
   points: TrackPoint[] | null;
+  /** How far its winds reached at each report, or null when no agency estimated it */
+  radii: (Radii | null)[] | null;
+  /** Whether its wind footprint is shaded on the map */
+  shaded: boolean;
   onClose: () => void;
 }
 
-const windText = (k: number) => `${k} kt · ${kt.mph(k)} mph · ${kt.kmh(k)} km/h`;
-
 /** One storm: what it peaked at, when, where, and its wind over its life */
-const StormDetail: React.FC<StormDetailProps> = ({ storm, points, onClose }) => {
+const StormDetail: React.FC<StormDetailProps> = ({ storm, points, radii, shaded, onClose }) => {
+  const { m, list } = useI18n();
   const peak = category(storm.peakCat);
   const days = (storm.end - storm.start) / 24;
+  const notRecorded = <span className="muted">{m.storm.notRecorded}</span>;
+  const ts = widest(radii, 0);
+  const hurricane = widest(radii, 8);
+  const local = storm.regional ? regional(storm.regional) : null;
+  // "Hurricane-force" or "typhoon-force", by the basin it was in at its strongest
+  const strongest = points?.reduce<TrackPoint | null>((a, p) => (p.wind !== null && (!a || p.wind > a.wind!) ? p : a), null);
+  const term = termOf(strongest ? basinAt(storm, strongest.t) : storm.basins[0]);
   return (
     <section className="detail" aria-label={`${displayName(storm)} (${storm.season})`}>
       <header className="detail-head">
-        <button className="back" onClick={onClose} aria-label="Back to the list">
+        <button className="back" onClick={onClose} aria-label={m.storm.back}>
           ←
         </button>
         <div>
@@ -24,30 +37,98 @@ const StormDetail: React.FC<StormDetailProps> = ({ storm, points, onClose }) => 
             {displayName(storm)} <span className="detail-season">{storm.season}</span>
           </h2>
           <span className="badge" style={{ background: peak.color }}>
-            {peak.label}
+            {categoryLabel(peak.code)}
           </span>
-          {storm.provisional && <span className="provisional">provisional</span>}
+          {storm.provisional && <span className="provisional">{m.storm.provisional}</span>}
         </div>
       </header>
       <dl className="stats">
-        <dt>Dates</dt>
+        <dt>{m.storm.dates}</dt>
         <dd>
-          {formatDate(storm.start)} – {formatDate(storm.end)}{' '}
-          <span className="muted">({days < 1 ? 'under a day' : `${Math.round(days * 10) / 10} days`})</span>
+          {formatDate(storm.start)} – {formatDate(storm.end)} <span className="muted">({m.storm.days(days)})</span>
         </dd>
-        <dt>Peak wind</dt>
-        <dd>{storm.peakWind ? windText(storm.peakWind) : <span className="muted">not recorded</span>}</dd>
-        <dt>Lowest pressure</dt>
-        <dd>{storm.minPres ? `${storm.minPres} mb` : <span className="muted">not recorded</span>}</dd>
-        <dt>Energy (ACE)</dt>
+        <dt>{m.storm.peakWind}</dt>
+        <dd>{storm.peakWind ? m.units.wind(storm.peakWind, kt.mph(storm.peakWind), kt.kmh(storm.peakWind)) : notRecorded}</dd>
+        {local && (
+          <>
+            <dt title={m.storm.regionalTitle}>{m.storm.regional}</dt>
+            <dd title={local.agency.name}>
+              {m.regional.withAgency(local.name, local.agency.short)}
+              {storm.regionalWind ? (
+                <span className="muted"> · {m.regional.wind(storm.regionalWind, local.minutes)}</span>
+              ) : null}
+            </dd>
+          </>
+        )}
+        <dt>{m.storm.lowestPressure}</dt>
+        <dd>{storm.minPres ? m.units.mb(storm.minPres) : notRecorded}</dd>
+        <dt>{m.storm.ace}</dt>
         <dd>{storm.ace || <span className="muted">—</span>}</dd>
-        <dt>Basin</dt>
-        <dd>{storm.basins.map((b) => BASINS[b] ?? b).join(', ')}</dd>
-        <dt>Over land</dt>
-        <dd>{storm.landfall ? 'Made landfall' : 'Stayed at sea'}</dd>
+        <dt>{m.storm.basin}</dt>
+        <dd>{storm.basins.map(basinName).join(', ')}</dd>
+        <dt>{m.storm.overLand}</dt>
+        <dd>
+          {storm.landfalls?.length
+            ? m.storm.landfallIn(list.format(storm.landfalls.map(countryName)))
+            : storm.landfall
+              ? m.storm.madeLandfall
+              : storm.crossed
+                ? null
+                : m.storm.stayedAtSea}
+          {/* Countries it reached over land, from a neighbour, rather than from the sea */}
+          {storm.crossed && (
+            <span className="crossed">
+              {(storm.landfall ? m.storm.alsoCrossed : m.storm.crossed)(list.format(storm.crossed.map(countryName)))}
+            </span>
+          )}
+        </dd>
+        {ts !== null && (
+          <>
+            <dt>{m.storm.windField}</dt>
+            <dd>{m.storm.windFieldText(Math.round(ts), hurricane ? Math.round(hurricane) : null, term)}</dd>
+          </>
+        )}
       </dl>
-      {points ? <WindChart points={points} /> : <p className="muted">Loading the track…</p>}
-      <p className="muted small">Tap or hover the dots on the map for each report.</p>
+      {shaded && (
+        <div className="footprint-key small">
+          <span className="muted">{m.storm.footprint}</span>
+          <span>
+            <i className="footprint-swatch ts" /> {m.storm.footprint34}
+          </span>
+          {hurricane ? (
+            <span>
+              <i className="footprint-swatch hurricane" /> {m.storm.footprint64(term)}
+            </span>
+          ) : null}
+        </div>
+      )}
+      {points ? <WindChart points={points} /> : <p className="muted">{m.storm.loadingTrack}</p>}
+      <p className="muted small">{m.storm.hint}</p>
+      {points && (
+        <p className="downloads small">
+          <span className="muted">{m.storm.downloadTrack}</span>
+          <button
+            className="link-inline"
+            onClick={() =>
+              download(`${fileName(displayName(storm), storm.season, storm.id)}.csv`, pointsCsv([{ storm, points }]), 'text/csv')
+            }
+          >
+            CSV
+          </button>
+          <button
+            className="link-inline"
+            onClick={() =>
+              download(
+                `${fileName(displayName(storm), storm.season, storm.id)}.geojson`,
+                tracksGeoJson([{ storm, points }]),
+                'application/geo+json',
+              )
+            }
+          >
+            GeoJSON
+          </button>
+        </p>
+      )}
     </section>
   );
 };
@@ -58,8 +139,9 @@ const PAD = { left: 30, right: 6, top: 8, bottom: 20 };
 
 /** Wind over the storm's life, on the category bands */
 const WindChart: React.FC<{ points: TrackPoint[] }> = ({ points }) => {
+  const { m } = useI18n();
   const winds = points.filter((p) => p.wind !== null);
-  if (winds.length < 2) return <p className="muted">No wind readings for this storm.</p>;
+  if (winds.length < 2) return <p className="muted">{m.storm.noWind}</p>;
   const t0 = points[0].t;
   const t1 = points[points.length - 1].t;
   const top = Math.max(160, ...winds.map((p) => p.wind!));
@@ -73,8 +155,8 @@ const WindChart: React.FC<{ points: TrackPoint[] }> = ({ points }) => {
 
   return (
     <figure className="chart">
-      <figcaption>Wind (kt) over the storm's life</figcaption>
-      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Wind speed over time">
+      <figcaption>{m.storm.chart}</figcaption>
+      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={m.storm.chartLabel}>
         {bands.map(({ c, lo, hi }) => (
           <rect
             key={c.code}
@@ -96,7 +178,7 @@ const WindChart: React.FC<{ points: TrackPoint[] }> = ({ points }) => {
         ))}
         {ticks.map((d) => (
           <text key={d} x={x(t0 + d * 24)} y={H - 6} className="chart-label" textAnchor="middle">
-            {d === 0 ? 'day 0' : d}
+            {d === 0 ? m.storm.day0 : d}
           </text>
         ))}
         <polyline

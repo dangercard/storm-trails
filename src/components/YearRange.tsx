@@ -1,3 +1,5 @@
+import { useI18n } from '../i18n';
+
 interface YearRangeProps {
   min: number;
   max: number;
@@ -7,12 +9,13 @@ interface YearRangeProps {
 
 /** Two thumbs on one track: the first and last season shown */
 const YearRange: React.FC<YearRangeProps> = ({ min, max, value: [from, to], onChange }) => {
+  const { m } = useI18n();
   const pct = (y: number) => ((y - min) / (max - min)) * 100;
   return (
     <div className="year-range">
       <div className="year-range-values">
         <span>{from}</span>
-        <span className="year-range-dash">to</span>
+        <span className="year-range-dash">{m.years.to}</span>
         <span>{to}</span>
       </div>
       <div className="year-range-track">
@@ -22,7 +25,7 @@ const YearRange: React.FC<YearRangeProps> = ({ min, max, value: [from, to], onCh
           min={min}
           max={max}
           value={from}
-          aria-label="First season"
+          aria-label={m.years.first}
           onChange={(e) => onChange([Math.min(Number(e.target.value), to), to])}
         />
         <input
@@ -30,7 +33,7 @@ const YearRange: React.FC<YearRangeProps> = ({ min, max, value: [from, to], onCh
           min={min}
           max={max}
           value={to}
-          aria-label="Last season"
+          aria-label={m.years.last}
           onChange={(e) => onChange([from, Math.max(Number(e.target.value), from)])}
         />
       </div>

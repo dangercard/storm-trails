@@ -1,0 +1,8 @@
+# Cloudflare Pages: HTTP headers by path (https://developers.cloudflare.com/pages/configuration/headers/)
+#
+# Code and styles: their names carry a fingerprint of their contents (index-1ruS3Hqa.js), and a new build gives new
+# names, so browsers can keep them for a year without asking. Everything else (the page, and /data, whose names stay
+# the same from build to build) keeps Pages' default: kept, but checked with the server on each visit, so a rebuild
+# is seen at once and the data files never mix versions.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable

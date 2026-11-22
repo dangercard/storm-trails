@@ -1,0 +1,4930 @@
+{
+ "made": "2026-11-22",
+ "summary": {
+  "reach": {
+   "34": {
+    "overlap": 0.9697863019447632,
+    "over": 0.018576386604933628,
+    "under": 0.012198572786142059
+   },
+   "50": {
+    "overlap": 0.9603860834081005,
+    "over": 0.027249783228672567,
+    "under": 0.013443604003194916
+   },
+   "64": {
+    "overlap": 0.9384894180206901,
+    "over": 0.04637260204643264,
+    "under": 0.01799038567264829
+   }
+  },
+  "drawn": {
+   "34": {
+    "overlap": 0.9705264436992875,
+    "over": 0.015374126789483137,
+    "under": 0.014552559702733378
+   },
+   "64": {
+    "overlap": 0.9361090588945089,
+    "over": 0.048962654008523114,
+    "under": 0.018056557140595137
+   }
+  }
+ },
+ "sameInputs": {
+  "34": {
+   "overlap": 0.9761768657461836,
+   "over": 0.014449699260803469,
+   "under": 0.009717672118430377
+  },
+  "50": {
+   "overlap": 0.9695452738320692,
+   "over": 0.020846213686803172,
+   "under": 0.01024337821059744
+  },
+  "64": {
+   "overlap": 0.9515021622099616,
+   "over": 0.03635460790560035,
+   "under": 0.013906349761564267
+  },
+  "storms": 75
+ },
+ "cities": {
+  "same": 1235,
+  "n": 1344,
+  "off": [
+   {
+    "storm": "KATRINA 2005",
+    "name": "Jackson, United States",
+    "nhc": 50,
+    "site": 34
+   },
+   {
+    "storm": "KATRINA 2005",
+    "name": "Coral Gables, United States",
+    "nhc": 50,
+    "site": 64
+   },
+   {
+    "storm": "GUSTAV 2008",
+    "name": "Havana, Cuba",
+    "nhc": 64,
+    "site": 50
+   },
+   {
+    "storm": "GUSTAV 2008",
+    "name": "Les Cayes, Haiti",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "GUSTAV 2008",
+    "name": "Lafayette, United States",
+    "nhc": 50,
+    "site": 64
+   },
+   {
+    "storm": "HANNA 2008",
+    "name": "Raleigh, United States",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "HANNA 2008",
+    "name": "Springfield, United States",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "HANNA 2008",
+    "name": "Fayetteville, United States",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "IDA 2009",
+    "name": "Metairie, United States",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "ALEX 2010",
+    "name": "Ciudad Victoria, Mexico",
+    "nhc": 50,
+    "site": 64
+   },
+   {
+    "storm": "EARL 2010",
+    "name": "Halifax, Canada",
+    "nhc": 50,
+    "site": 64
+   },
+   {
+    "storm": "EARL 2010",
+    "name": "Mayagüez, Puerto Rico",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "IGOR 2010",
+    "name": "Halifax, Canada",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "IGOR 2010",
+    "name": "St. John's, Canada",
+    "nhc": 64,
+    "site": 50
+   },
+   {
+    "storm": "KARL 2010",
+    "name": "Córdoba, Mexico",
+    "nhc": 50,
+    "site": 64
+   },
+   {
+    "storm": "KARL 2010",
+    "name": "Campeche, Mexico",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "KARL 2010",
+    "name": "Ciudad del Carmen, Mexico",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "KARL 2010",
+    "name": "Chetumal, Mexico",
+    "nhc": 34,
+    "site": 50
+   },
+   {
+    "storm": "RICHARD 2010",
+    "name": "Chetumal, Mexico",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "TOMAS 2010",
+    "name": "Bridgetown, Barbados",
+    "nhc": 50,
+    "site": 64
+   },
+   {
+    "storm": "IRENE 2011",
+    "name": "Norfolk, United States",
+    "nhc": 64,
+    "site": 50
+   },
+   {
+    "storm": "IRENE 2011",
+    "name": "Wilmington, United States",
+    "nhc": 50,
+    "site": 34
+   },
+   {
+    "storm": "IRENE 2011",
+    "name": "Sherbrooke, Canada",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "MARIA 2011",
+    "name": "San Juan, Puerto Rico",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "JOVA 2011",
+    "name": "Colima, Mexico",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "RINA 2011",
+    "name": "Cancún, Mexico",
+    "nhc": 34,
+    "site": 50
+   },
+   {
+    "storm": "ISAAC 2012",
+    "name": "Higuey, Dominican Republic",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "MANUEL 2013",
+    "name": "Colima, Mexico",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "MANUEL 2013",
+    "name": "Manzanillo, Mexico",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "ARTHUR 2014",
+    "name": "Virginia Beach, United States",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "ARTHUR 2014",
+    "name": "Wilmington, United States",
+    "nhc": 34,
+    "site": 50
+   },
+   {
+    "storm": "BERTHA 2014",
+    "name": "San Francisco de Macorís, Dominican Republic",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "PATRICIA 2015",
+    "name": "León, Mexico",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "PATRICIA 2015",
+    "name": "Querétaro, Mexico",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "PATRICIA 2015",
+    "name": "Aguascalientes, Mexico",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "PATRICIA 2015",
+    "name": "Morelia, Mexico",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "PATRICIA 2015",
+    "name": "Celaya, Mexico",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "PATRICIA 2015",
+    "name": "Irapuato, Mexico",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "PATRICIA 2015",
+    "name": "Uruapan, Mexico",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "PATRICIA 2015",
+    "name": "Zamora, Mexico",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "PATRICIA 2015",
+    "name": "Salamanca, Mexico",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "PATRICIA 2015",
+    "name": "Puerto Vallarta, Mexico",
+    "nhc": 50,
+    "site": 34
+   },
+   {
+    "storm": "PATRICIA 2015",
+    "name": "Guanajuato, Mexico",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "DARBY 2016",
+    "name": "Honolulu, United States",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "DARBY 2016",
+    "name": "Wahiawa, United States",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "EARL 2016",
+    "name": "Veracruz, Mexico",
+    "nhc": 34,
+    "site": 50
+   },
+   {
+    "storm": "EARL 2016",
+    "name": "Villahermosa, Mexico",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "EARL 2016",
+    "name": "Teziutlán, Mexico",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "HERMINE 2016",
+    "name": "Fayetteville, United States",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "NEWTON 2016",
+    "name": "La Paz, Mexico",
+    "nhc": 64,
+    "site": 50
+   },
+   {
+    "storm": "MATTHEW 2016",
+    "name": "Miami, United States",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "MATTHEW 2016",
+    "name": "Palma Soriano, Cuba",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "HARVEY 2017",
+    "name": "Austin, United States",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "IRMA 2017",
+    "name": "La Romana, Dominican Republic",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "IRMA 2017",
+    "name": "Wilmington, United States",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "KATIA 2017",
+    "name": "Teziutlán, Mexico",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "BERYL 2018",
+    "name": "Pointe-à-Pitre, France",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "FLORENCE 2018",
+    "name": "Raleigh, United States",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "MICHAEL 2018",
+    "name": "Raleigh, United States",
+    "nhc": 34,
+    "site": 50
+   },
+   {
+    "storm": "MICHAEL 2018",
+    "name": "Gijón, Spain",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "MICHAEL 2018",
+    "name": "Durham, United States",
+    "nhc": 34,
+    "site": 50
+   },
+   {
+    "storm": "MICHAEL 2018",
+    "name": "Badajoz, Spain",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "MICHAEL 2018",
+    "name": "León, Spain",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "DORIAN 2019",
+    "name": "Orlando, United States",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "LORENZO 2019",
+    "name": "Blackpool, United Kingdom",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "ISAIAS 2020",
+    "name": "Cap-Haïtien, Haiti",
+    "nhc": 34,
+    "site": 50
+   },
+   {
+    "storm": "ISAIAS 2020",
+    "name": "San Pedro de Macorís, Dominican Republic",
+    "nhc": 34,
+    "site": 50
+   },
+   {
+    "storm": "ISAIAS 2020",
+    "name": "Wilkes-Barre, United States",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "ISAIAS 2020",
+    "name": "San Francisco de Macorís, Dominican Republic",
+    "nhc": 50,
+    "site": 64
+   },
+   {
+    "storm": "ISAIAS 2020",
+    "name": "Puerto Plata, Dominican Republic",
+    "nhc": 50,
+    "site": 64
+   },
+   {
+    "storm": "DELTA 2020",
+    "name": "Jackson, United States",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "ELSA 2021",
+    "name": "Hampton, United States",
+    "nhc": 34,
+    "site": 50
+   },
+   {
+    "storm": "ELSA 2021",
+    "name": "Halifax, Canada",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "ELSA 2021",
+    "name": "Ocala, United States",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "ELSA 2021",
+    "name": "New Bedford, United States",
+    "nhc": 34,
+    "site": 50
+   },
+   {
+    "storm": "HENRI 2021",
+    "name": "New Bedford, United States",
+    "nhc": 34,
+    "site": 50
+   },
+   {
+    "storm": "NORA 2021",
+    "name": "Guadalajara, Mexico",
+    "nhc": 34,
+    "site": 0
+   },
+   {
+    "storm": "IDA 2021",
+    "name": "Washington,  D.C., United States",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "IDA 2021",
+    "name": "Baltimore, United States",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "IDA 2021",
+    "name": "Newark, United States",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "IDA 2021",
+    "name": "Alexandria, United States",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "FIONA 2022",
+    "name": "Halifax, Canada",
+    "nhc": 50,
+    "site": 64
+   },
+   {
+    "storm": "IAN 2022",
+    "name": "Durham, United States",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "LEE 2023",
+    "name": "Lowell, United States",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "BERYL 2024",
+    "name": "Houston, United States",
+    "nhc": 64,
+    "site": 50
+   },
+   {
+    "storm": "FRANCINE 2024",
+    "name": "Ciudad Madero, Mexico",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "HELENE 2024",
+    "name": "Augusta, United States",
+    "nhc": 50,
+    "site": 34
+   },
+   {
+    "storm": "HELENE 2024",
+    "name": "Columbus, United States",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "HELENE 2024",
+    "name": "Savannah, United States",
+    "nhc": 50,
+    "site": 34
+   },
+   {
+    "storm": "KIRK 2024",
+    "name": "Brussels, Belgium",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "KIRK 2024",
+    "name": "Turin, Italy",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "KIRK 2024",
+    "name": "Cologne, Germany",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "KIRK 2024",
+    "name": "Saarbrücken, Germany",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "KIRK 2024",
+    "name": "Liège, Belgium",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "KIRK 2024",
+    "name": "Bonn, Germany",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "KIRK 2024",
+    "name": "Brighton, United Kingdom",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "KIRK 2024",
+    "name": "Strasbourg, France",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "KIRK 2024",
+    "name": "Charleroi, Belgium",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "KIRK 2024",
+    "name": "Koblenz, Germany",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "KIRK 2024",
+    "name": "Freiburg, Germany",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "KIRK 2024",
+    "name": "Badajoz, Spain",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "KIRK 2024",
+    "name": "Maastricht, Netherlands",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "KIRK 2024",
+    "name": "Setúbal, Portugal",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "KIRK 2024",
+    "name": "Luxembourg, Luxembourg",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "KIRK 2024",
+    "name": "Namur, Belgium",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "MILTON 2024",
+    "name": "Tampa, United States",
+    "nhc": 50,
+    "site": 64
+   },
+   {
+    "storm": "OSCAR 2024",
+    "name": "Guantánamo, Cuba",
+    "nhc": 34,
+    "site": 50
+   },
+   {
+    "storm": "OSCAR 2024",
+    "name": "Palma Soriano, Cuba",
+    "nhc": 0,
+    "site": 34
+   },
+   {
+    "storm": "POLO 2026",
+    "name": "Mazatlán, Mexico",
+    "nhc": 34,
+    "site": 0
+   }
+  ]
+ },
+ "storms": [
+  {
+   "id": "ep012005",
+   "name": "ADRIAN",
+   "season": 2005,
+   "skipped": "no NHC swath"
+  },
+  {
+   "id": "al032005",
+   "name": "CINDY",
+   "season": 2005,
+   "skipped": "no NHC swath"
+  },
+  {
+   "id": "al042005",
+   "name": "DENNIS",
+   "season": 2005,
+   "skipped": "no NHC swath"
+  },
+  {
+   "id": "al052005",
+   "name": "EMILY",
+   "season": 2005,
+   "skipped": "no NHC swath"
+  },
+  {
+   "id": "al122005",
+   "name": "KATRINA",
+   "season": 2005,
+   "overlap": {
+    "34": 0.978,
+    "50": 0.963,
+    "64": 0.973
+   },
+   "over": {
+    "34": 0.008,
+    "50": 0.016,
+    "64": 0.021
+   },
+   "under": {
+    "34": 0.014,
+    "50": 0.022,
+    "64": 0.007
+   },
+   "drawnOverlap": {
+    "34": 0.976,
+    "64": 0.973
+   },
+   "cities": 13,
+   "citiesSame": 11,
+   "nhcFile": "June 21, 2013",
+   "reportsDiffering": "3 of 27",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al162005",
+   "name": "OPHELIA",
+   "season": 2005,
+   "skipped": "no NHC swath"
+  },
+  {
+   "id": "al182005",
+   "name": "RITA",
+   "season": 2005,
+   "overlap": {
+    "34": 0.973,
+    "50": 0.974,
+    "64": 0.95
+   },
+   "over": {
+    "34": 0.005,
+    "50": 0.012,
+    "64": 0.038
+   },
+   "under": {
+    "34": 0.022,
+    "50": 0.015,
+    "64": 0.013
+   },
+   "drawnOverlap": {
+    "34": 0.974,
+    "64": 0.953
+   },
+   "cities": 11,
+   "citiesSame": 11,
+   "nhcFile": "June 21, 2013",
+   "reportsDiffering": "1 of 27",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al202005",
+   "name": "STAN",
+   "season": 2005,
+   "skipped": "no NHC swath"
+  },
+  {
+   "id": "al242005",
+   "name": "VINCE",
+   "season": 2005,
+   "skipped": "no NHC swath"
+  },
+  {
+   "id": "al252005",
+   "name": "WILMA",
+   "season": 2005,
+   "skipped": "no NHC swath"
+  },
+  {
+   "id": "al272005",
+   "name": "BETA",
+   "season": 2005,
+   "skipped": "no NHC swath"
+  },
+  {
+   "id": "al062006",
+   "name": "ERNESTO",
+   "season": 2006,
+   "skipped": "no NHC swath"
+  },
+  {
+   "id": "ep112006",
+   "name": "JOHN",
+   "season": 2006,
+   "skipped": "no NHC swath"
+  },
+  {
+   "id": "al072006",
+   "name": "FLORENCE",
+   "season": 2006,
+   "skipped": "no NHC swath"
+  },
+  {
+   "id": "al082006",
+   "name": "GORDON",
+   "season": 2006,
+   "skipped": "no NHC swath"
+  },
+  {
+   "id": "al092006",
+   "name": "HELENE",
+   "season": 2006,
+   "skipped": "no NHC swath"
+  },
+  {
+   "id": "ep132006",
+   "name": "LANE",
+   "season": 2006,
+   "skipped": "no NHC swath"
+  },
+  {
+   "id": "ep172006",
+   "name": "PAUL",
+   "season": 2006,
+   "skipped": "no NHC swath"
+  },
+  {
+   "id": "al042007",
+   "name": "DEAN",
+   "season": 2007,
+   "skipped": "no NHC swath"
+  },
+  {
+   "id": "ep112007",
+   "name": "HENRIETTE",
+   "season": 2007,
+   "skipped": "no NHC swath"
+  },
+  {
+   "id": "al062007",
+   "name": "FELIX",
+   "season": 2007,
+   "skipped": "no NHC swath"
+  },
+  {
+   "id": "al092007",
+   "name": "HUMBERTO",
+   "season": 2007,
+   "overlap": {
+    "34": 0.975,
+    "50": 0.92,
+    "64": 0.375
+   },
+   "over": {
+    "34": 0.013,
+    "50": 0.087,
+    "64": 0.334
+   },
+   "under": {
+    "34": 0.013,
+    "50": 0,
+    "64": 0.5
+   },
+   "drawnOverlap": {
+    "34": 0.963,
+    "64": 0.333
+   },
+   "cities": 1,
+   "citiesSame": 1,
+   "nhcFile": "July 13, 2009",
+   "reportsDiffering": "1 of 7",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al132007",
+   "name": "LORENZO",
+   "season": 2007,
+   "skipped": "no NHC swath"
+  },
+  {
+   "id": "al162007",
+   "name": "NOEL",
+   "season": 2007,
+   "skipped": "no NHC swath"
+  },
+  {
+   "id": "al042008",
+   "name": "DOLLY",
+   "season": 2008,
+   "skipped": "no NHC swath"
+  },
+  {
+   "id": "al072008",
+   "name": "GUSTAV",
+   "season": 2008,
+   "overlap": {
+    "34": 0.974,
+    "50": 0.951,
+    "64": 0.952
+   },
+   "over": {
+    "34": 0.014,
+    "50": 0.022,
+    "64": 0.038
+   },
+   "under": {
+    "34": 0.013,
+    "50": 0.028,
+    "64": 0.013
+   },
+   "drawnOverlap": {
+    "34": 0.972,
+    "64": 0.944
+   },
+   "cities": 17,
+   "citiesSame": 14,
+   "nhcFile": "October 1, 2009",
+   "reportsDiffering": "0 of 34",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al082008",
+   "name": "HANNA",
+   "season": 2008,
+   "overlap": {
+    "34": 0.969,
+    "50": 0.954,
+    "64": 0.896
+   },
+   "over": {
+    "34": 0.007,
+    "50": 0.024,
+    "64": 0.036
+   },
+   "under": {
+    "34": 0.024,
+    "50": 0.023,
+    "64": 0.071
+   },
+   "drawnOverlap": {
+    "34": 0.969,
+    "64": 0.839
+   },
+   "cities": 33,
+   "citiesSame": 30,
+   "nhcFile": "October 1, 2009",
+   "reportsDiffering": "0 of 41",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al092008",
+   "name": "IKE",
+   "season": 2008,
+   "overlap": {
+    "34": 0.978,
+    "50": 0.963,
+    "64": 0.963
+   },
+   "over": {
+    "34": 0.005,
+    "50": 0.014,
+    "64": 0.017
+   },
+   "under": {
+    "34": 0.016,
+    "50": 0.023,
+    "64": 0.02
+   },
+   "drawnOverlap": {
+    "34": 0.978,
+    "64": 0.963
+   },
+   "cities": 30,
+   "citiesSame": 30,
+   "nhcFile": "October 1, 2009",
+   "reportsDiffering": "0 of 56",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al112008",
+   "name": "KYLE",
+   "season": 2008,
+   "skipped": "no NHC swath"
+  },
+  {
+   "id": "ep152008",
+   "name": "NORBERT",
+   "season": 2008,
+   "overlap": {
+    "34": 0.986,
+    "50": 0.971,
+    "64": 0.969
+   },
+   "over": {
+    "34": 0.004,
+    "50": 0.015,
+    "64": 0.024
+   },
+   "under": {
+    "34": 0.01,
+    "50": 0.014,
+    "64": 0.008
+   },
+   "drawnOverlap": {
+    "34": 0.982,
+    "64": 0.969
+   },
+   "cities": 4,
+   "citiesSame": 4,
+   "nhcFile": "October 1, 2009",
+   "reportsDiffering": "0 of 33",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al172008",
+   "name": "PALOMA",
+   "season": 2008,
+   "overlap": {
+    "34": 0.969,
+    "50": 0.915,
+    "64": 0.985
+   },
+   "over": {
+    "34": 0.016,
+    "50": 0.061,
+    "64": 0.015
+   },
+   "under": {
+    "34": 0.016,
+    "50": 0.03,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.969,
+    "64": 0.985
+   },
+   "cities": 3,
+   "citiesSame": 3,
+   "nhcFile": "October 1, 2009",
+   "reportsDiffering": "0 of 15",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al032009",
+   "name": "BILL",
+   "season": 2009,
+   "overlap": {
+    "34": 0.98,
+    "50": 0.979,
+    "64": 0.962
+   },
+   "over": {
+    "34": 0.011,
+    "50": 0.013,
+    "64": 0.027
+   },
+   "under": {
+    "34": 0.009,
+    "50": 0.007,
+    "64": 0.013
+   },
+   "drawnOverlap": {
+    "34": 0.979,
+    "64": 0.962
+   },
+   "cities": 2,
+   "citiesSame": 2,
+   "nhcFile": "January 28, 2010",
+   "reportsDiffering": "0 of 36",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep132009",
+   "name": "JIMENA",
+   "season": 2009,
+   "overlap": {
+    "34": 0.973,
+    "50": 0.958,
+    "64": 0.944
+   },
+   "over": {
+    "34": 0.005,
+    "50": 0.018,
+    "64": 0.039
+   },
+   "under": {
+    "34": 0.022,
+    "50": 0.025,
+    "64": 0.019
+   },
+   "drawnOverlap": {
+    "34": 0.973,
+    "64": 0.931
+   },
+   "cities": 2,
+   "citiesSame": 2,
+   "nhcFile": "February 16, 2010",
+   "reportsDiffering": "0 of 27",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep202009",
+   "name": "RICK",
+   "season": 2009,
+   "overlap": {
+    "34": 0.98,
+    "50": 0.953,
+    "64": 0.944
+   },
+   "over": {
+    "34": 0.01,
+    "50": 0.021,
+    "64": 0.029
+   },
+   "under": {
+    "34": 0.009,
+    "50": 0.027,
+    "64": 0.029
+   },
+   "drawnOverlap": {
+    "34": 0.978,
+    "64": 0.936
+   },
+   "cities": 1,
+   "citiesSame": 1,
+   "nhcFile": "February 16, 2010",
+   "reportsDiffering": "0 of 24",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al112009",
+   "name": "IDA",
+   "season": 2009,
+   "overlap": {
+    "34": 0.952,
+    "50": 0.95,
+    "64": 0.778
+   },
+   "over": {
+    "34": 0.007,
+    "50": 0.025,
+    "64": 0.229
+   },
+   "under": {
+    "34": 0.041,
+    "50": 0.027,
+    "64": 0.044
+   },
+   "drawnOverlap": {
+    "34": 0.952,
+    "64": 0.781
+   },
+   "cities": 5,
+   "citiesSame": 4,
+   "nhcFile": "January 28, 2010",
+   "reportsDiffering": "0 of 20",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al012010",
+   "name": "ALEX",
+   "season": 2010,
+   "overlap": {
+    "34": 0.921,
+    "50": 0.908,
+    "64": 0.795
+   },
+   "over": {
+    "34": 0.056,
+    "50": 0.059,
+    "64": 0.122
+   },
+   "under": {
+    "34": 0.028,
+    "50": 0.038,
+    "64": 0.108
+   },
+   "drawnOverlap": {
+    "34": 0.921,
+    "64": 0.795
+   },
+   "cities": 13,
+   "citiesSame": 12,
+   "nhcFile": "November 17, 2010",
+   "reportsDiffering": "14 of 24",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al072010",
+   "name": "EARL",
+   "season": 2010,
+   "overlap": {
+    "34": 0.93,
+    "50": 0.903,
+    "64": 0.872
+   },
+   "over": {
+    "34": 0.043,
+    "50": 0.018,
+    "64": 0.136
+   },
+   "under": {
+    "34": 0.03,
+    "50": 0.081,
+    "64": 0.01
+   },
+   "drawnOverlap": {
+    "34": 0.93,
+    "64": 0.868
+   },
+   "cities": 8,
+   "citiesSame": 6,
+   "nhcFile": "November 9, 2010",
+   "reportsDiffering": "37 of 45",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al112010",
+   "name": "IGOR",
+   "season": 2010,
+   "overlap": {
+    "34": 0.903,
+    "50": 0.89,
+    "64": 0.878
+   },
+   "over": {
+    "34": 0.044,
+    "50": 0.071,
+    "64": 0.029
+   },
+   "under": {
+    "34": 0.057,
+    "50": 0.047,
+    "64": 0.096
+   },
+   "drawnOverlap": {
+    "34": 0.904,
+    "64": 0.878
+   },
+   "cities": 2,
+   "citiesSame": 0,
+   "nhcFile": "November 20, 2010",
+   "reportsDiffering": "39 of 51",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al132010",
+   "name": "KARL",
+   "season": 2010,
+   "overlap": {
+    "34": 0.98,
+    "50": 0.9,
+    "64": 0.838
+   },
+   "over": {
+    "34": 0.009,
+    "50": 0.093,
+    "64": 0.149
+   },
+   "under": {
+    "34": 0.012,
+    "50": 0.017,
+    "64": 0.037
+   },
+   "drawnOverlap": {
+    "34": 0.974,
+    "64": 0.838
+   },
+   "cities": 9,
+   "citiesSame": 5,
+   "nhcFile": "September 18, 2010",
+   "reportsDiffering": "2 of 16",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al182010",
+   "name": "PAULA",
+   "season": 2010,
+   "overlap": {
+    "34": 0.866,
+    "50": 0.723,
+    "64": 0.599
+   },
+   "over": {
+    "34": 0.027,
+    "50": 0.335,
+    "64": 0.356
+   },
+   "under": {
+    "34": 0.111,
+    "50": 0.035,
+    "64": 0.188
+   },
+   "drawnOverlap": {
+    "34": 0.86,
+    "64": 0.599
+   },
+   "cities": 3,
+   "citiesSame": 3,
+   "nhcFile": "October 15, 2010",
+   "reportsDiffering": "15 of 15",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al192010",
+   "name": "RICHARD",
+   "season": 2010,
+   "overlap": {
+    "34": 0.954,
+    "50": 0.97,
+    "64": 0.917
+   },
+   "over": {
+    "34": 0.005,
+    "50": 0.015,
+    "64": 0.091
+   },
+   "under": {
+    "34": 0.042,
+    "50": 0.015,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.954,
+    "64": 0.917
+   },
+   "cities": 1,
+   "citiesSame": 0,
+   "nhcFile": "November 23, 2010",
+   "reportsDiffering": "1 of 18",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al212010",
+   "name": "TOMAS",
+   "season": 2010,
+   "overlap": {
+    "34": 0.805,
+    "50": 0.815,
+    "64": 0.604
+   },
+   "over": {
+    "34": 0.054,
+    "50": 0.187,
+    "64": 0.215
+   },
+   "under": {
+    "34": 0.151,
+    "50": 0.032,
+    "64": 0.266
+   },
+   "drawnOverlap": {
+    "34": 0.804,
+    "64": 0.612
+   },
+   "cities": 6,
+   "citiesSame": 5,
+   "nhcFile": "November 7, 2010",
+   "reportsDiffering": "30 of 36",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al092011",
+   "name": "IRENE",
+   "season": 2011,
+   "overlap": {
+    "34": 0.981,
+    "50": 0.976,
+    "64": 0.965
+   },
+   "over": {
+    "34": 0.009,
+    "50": 0.015,
+    "64": 0.017
+   },
+   "under": {
+    "34": 0.011,
+    "50": 0.01,
+    "64": 0.019
+   },
+   "drawnOverlap": {
+    "34": 0.98,
+    "64": 0.968
+   },
+   "cities": 59,
+   "citiesSame": 56,
+   "nhcFile": "December 14, 2011",
+   "reportsDiffering": "5 of 37",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al122011",
+   "name": "KATIA",
+   "season": 2011,
+   "overlap": {
+    "34": 0.984,
+    "50": 0.983,
+    "64": 0.973
+   },
+   "over": {
+    "34": 0.01,
+    "50": 0.011,
+    "64": 0.018
+   },
+   "under": {
+    "34": 0.006,
+    "50": 0.006,
+    "64": 0.009
+   },
+   "drawnOverlap": {
+    "34": 0.984,
+    "64": 0.971
+   },
+   "cities": 0,
+   "citiesSame": 0,
+   "nhcFile": "January 23, 2012",
+   "reportsDiffering": "0 of 46",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al142011",
+   "name": "MARIA",
+   "season": 2011,
+   "overlap": {
+    "34": 0.963,
+    "50": 0.955,
+    "64": 0.74
+   },
+   "over": {
+    "34": 0.021,
+    "50": 0.034,
+    "64": 0.318
+   },
+   "under": {
+    "34": 0.017,
+    "50": 0.013,
+    "64": 0.025
+   },
+   "drawnOverlap": {
+    "34": 0.962,
+    "64": 0.73
+   },
+   "cities": 2,
+   "citiesSame": 1,
+   "nhcFile": "January 12, 2012",
+   "reportsDiffering": "0 of 40",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al152011",
+   "name": "NATE",
+   "season": 2011,
+   "overlap": {
+    "34": 0.952,
+    "50": 0.921,
+    "64": 0.715
+   },
+   "over": {
+    "34": 0,
+    "50": 0.027,
+    "64": 0.399
+   },
+   "under": {
+    "34": 0.048,
+    "50": 0.054,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.942,
+    "64": 0.715
+   },
+   "cities": 5,
+   "citiesSame": 5,
+   "nhcFile": "November 15, 2011",
+   "reportsDiffering": "0 of 19",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al162011",
+   "name": "OPHELIA",
+   "season": 2011,
+   "overlap": {
+    "34": 0.972,
+    "50": 0.953,
+    "64": 0.908
+   },
+   "over": {
+    "34": 0.003,
+    "50": 0.028,
+    "64": 0.098
+   },
+   "under": {
+    "34": 0.026,
+    "50": 0.02,
+    "64": 0.003
+   },
+   "drawnOverlap": {
+    "34": 0.969,
+    "64": 0.904
+   },
+   "cities": 0,
+   "citiesSame": 0,
+   "nhcFile": "December 8, 2011",
+   "reportsDiffering": "0 of 39",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep102011",
+   "name": "JOVA",
+   "season": 2011,
+   "overlap": {
+    "34": 0.963,
+    "50": 0.988,
+    "64": 0.953
+   },
+   "over": {
+    "34": 0.005,
+    "50": 0.006,
+    "64": 0.05
+   },
+   "under": {
+    "34": 0.031,
+    "50": 0.006,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.971,
+    "64": 0.953
+   },
+   "cities": 4,
+   "citiesSame": 3,
+   "nhcFile": "February 6, 2012",
+   "reportsDiffering": "0 of 24",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al182011",
+   "name": "RINA",
+   "season": 2011,
+   "overlap": {
+    "34": 0.963,
+    "50": 0.966,
+    "64": 0.951
+   },
+   "over": {
+    "34": 0.003,
+    "50": 0.017,
+    "64": 0.025
+   },
+   "under": {
+    "34": 0.034,
+    "50": 0.017,
+    "64": 0.025
+   },
+   "drawnOverlap": {
+    "34": 0.96,
+    "64": 0.951
+   },
+   "cities": 1,
+   "citiesSame": 0,
+   "nhcFile": "January 26, 2012",
+   "reportsDiffering": "0 of 20",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep032012",
+   "name": "CARLOTTA",
+   "season": 2012,
+   "overlap": {
+    "34": 0.973,
+    "50": 0.961,
+    "64": 0.92
+   },
+   "over": {
+    "34": 0.015,
+    "50": 0.016,
+    "64": 0.087
+   },
+   "under": {
+    "34": 0.011,
+    "50": 0.024,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.973,
+    "64": 0.92
+   },
+   "cities": 0,
+   "citiesSame": 0,
+   "nhcFile": "January 7, 2013",
+   "reportsDiffering": "0 of 10",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al052012",
+   "name": "ERNESTO",
+   "season": 2012,
+   "overlap": {
+    "34": 0.92,
+    "50": 0.922,
+    "64": 0.796
+   },
+   "over": {
+    "34": 0.003,
+    "50": 0.028,
+    "64": 0.167
+   },
+   "under": {
+    "34": 0.078,
+    "50": 0.052,
+    "64": 0.071
+   },
+   "drawnOverlap": {
+    "34": 0.917,
+    "64": 0.78
+   },
+   "cities": 8,
+   "citiesSame": 8,
+   "nhcFile": "December 6, 2012",
+   "reportsDiffering": "0 of 34",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al082012",
+   "name": "GORDON",
+   "season": 2012,
+   "overlap": {
+    "34": 0.982,
+    "50": 0.944,
+    "64": 0.887
+   },
+   "over": {
+    "34": 0.012,
+    "50": 0.048,
+    "64": 0.123
+   },
+   "under": {
+    "34": 0.007,
+    "50": 0.011,
+    "64": 0.005
+   },
+   "drawnOverlap": {
+    "34": 0.982,
+    "64": 0.883
+   },
+   "cities": 0,
+   "citiesSame": 0,
+   "nhcFile": "January 16, 2013",
+   "reportsDiffering": "1 of 23",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al092012",
+   "name": "ISAAC",
+   "season": 2012,
+   "overlap": {
+    "34": 0.971,
+    "50": 0.949,
+    "64": 0.918
+   },
+   "over": {
+    "34": 0.01,
+    "50": 0.028,
+    "64": 0
+   },
+   "under": {
+    "34": 0.02,
+    "50": 0.024,
+    "64": 0.082
+   },
+   "drawnOverlap": {
+    "34": 0.97,
+    "64": 0.907
+   },
+   "cities": 43,
+   "citiesSame": 42,
+   "nhcFile": "January 28, 2013",
+   "reportsDiffering": "0 of 38",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al122012",
+   "name": "LESLIE",
+   "season": 2012,
+   "overlap": {
+    "34": 0.978,
+    "50": 0.972,
+    "64": 0.936
+   },
+   "over": {
+    "34": 0.009,
+    "50": 0.013,
+    "64": 0.068
+   },
+   "under": {
+    "34": 0.014,
+    "50": 0.016,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.977,
+    "64": 0.936
+   },
+   "cities": 0,
+   "citiesSame": 0,
+   "nhcFile": "January 31, 2013",
+   "reportsDiffering": "0 of 48",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al172012",
+   "name": "RAFAEL",
+   "season": 2012,
+   "overlap": {
+    "34": 0.971,
+    "50": 0.967,
+    "64": 0.971
+   },
+   "over": {
+    "34": 0.015,
+    "50": 0.014,
+    "64": 0.021
+   },
+   "under": {
+    "34": 0.015,
+    "50": 0.02,
+    "64": 0.009
+   },
+   "drawnOverlap": {
+    "34": 0.97,
+    "64": 0.973
+   },
+   "cities": 1,
+   "citiesSame": 1,
+   "nhcFile": "January 7, 2013",
+   "reportsDiffering": "0 of 20",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep162012",
+   "name": "PAUL",
+   "season": 2012,
+   "overlap": {
+    "34": 0.97,
+    "50": 0.971,
+    "64": 0.943
+   },
+   "over": {
+    "34": 0.013,
+    "50": 0.021,
+    "64": 0.06
+   },
+   "under": {
+    "34": 0.017,
+    "50": 0.009,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.969,
+    "64": 0.943
+   },
+   "cities": 0,
+   "citiesSame": 0,
+   "nhcFile": "January 8, 2013",
+   "reportsDiffering": "0 of 17",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al182012",
+   "name": "SANDY",
+   "season": 2012,
+   "overlap": {
+    "34": 0.978,
+    "50": 0.98,
+    "64": 0.947
+   },
+   "over": {
+    "34": 0.01,
+    "50": 0.008,
+    "64": 0.018
+   },
+   "under": {
+    "34": 0.012,
+    "50": 0.012,
+    "64": 0.036
+   },
+   "drawnOverlap": {
+    "34": 0.976,
+    "64": 0.935
+   },
+   "cities": 87,
+   "citiesSame": 87,
+   "nhcFile": "February 12, 2013",
+   "reportsDiffering": "0 of 31",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep022013",
+   "name": "BARBARA",
+   "season": 2013,
+   "overlap": {
+    "34": 0.949,
+    "50": 0.884,
+    "64": 0.25
+   },
+   "over": {
+    "34": 0.035,
+    "50": 0.103,
+    "64": 2.998
+   },
+   "under": {
+    "34": 0.018,
+    "50": 0.026,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.949,
+    "64": 0.25
+   },
+   "cities": 0,
+   "citiesSame": 0,
+   "nhcFile": "August 14, 2013",
+   "reportsDiffering": "0 of 7",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al102013",
+   "name": "INGRID",
+   "season": 2013,
+   "overlap": {
+    "34": 0.977,
+    "50": 0.93,
+    "64": 0.822
+   },
+   "over": {
+    "34": 0.008,
+    "50": 0.042,
+    "64": 0.167
+   },
+   "under": {
+    "34": 0.016,
+    "50": 0.031,
+    "64": 0.041
+   },
+   "drawnOverlap": {
+    "34": 0.973,
+    "64": 0.857
+   },
+   "cities": 0,
+   "citiesSame": 0,
+   "nhcFile": "February 5, 2014",
+   "reportsDiffering": "0 of 15",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep132013",
+   "name": "MANUEL",
+   "season": 2013,
+   "overlap": {
+    "34": 0.941,
+    "50": 0.886,
+    "64": 0.6
+   },
+   "over": {
+    "34": 0.033,
+    "50": 0.129,
+    "64": 0.667
+   },
+   "under": {
+    "34": 0.028,
+    "50": 0,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.952,
+    "64": 0.6
+   },
+   "cities": 4,
+   "citiesSame": 2,
+   "nhcFile": "January 13, 2014",
+   "reportsDiffering": "0 of 16",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al012014",
+   "name": "ARTHUR",
+   "season": 2014,
+   "overlap": {
+    "34": 0.978,
+    "50": 0.987,
+    "64": 0.907
+   },
+   "over": {
+    "34": 0.017,
+    "50": 0.008,
+    "64": 0.103
+   },
+   "under": {
+    "34": 0.006,
+    "50": 0.006,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.979,
+    "64": 0.907
+   },
+   "cities": 2,
+   "citiesSame": 0,
+   "nhcFile": "January 21, 2015",
+   "reportsDiffering": "0 of 18",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al032014",
+   "name": "BERTHA",
+   "season": 2014,
+   "overlap": {
+    "34": 0.963,
+    "50": 0.908,
+    "64": 0.751
+   },
+   "over": {
+    "34": 0.005,
+    "50": 0.094,
+    "64": 0.332
+   },
+   "under": {
+    "34": 0.032,
+    "50": 0.007,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.961,
+    "64": 0.751
+   },
+   "cities": 8,
+   "citiesSame": 7,
+   "nhcFile": "December 16, 2014",
+   "reportsDiffering": "1 of 28",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep092014",
+   "name": "ISELLE",
+   "season": 2014,
+   "overlap": {
+    "34": 0.978,
+    "50": 0.958,
+    "64": 0.964
+   },
+   "over": {
+    "34": 0.001,
+    "50": 0.018,
+    "64": 0.018
+   },
+   "under": {
+    "34": 0.021,
+    "50": 0.025,
+    "64": 0.018
+   },
+   "drawnOverlap": {
+    "34": 0.973,
+    "64": 0.961
+   },
+   "cities": 0,
+   "citiesSame": 0,
+   "nhcFile": "February 12, 2016",
+   "reportsDiffering": "0 of 35",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al042014",
+   "name": "CRISTOBAL",
+   "season": 2014,
+   "overlap": {
+    "34": 0.972,
+    "50": 0.966,
+    "64": 0.964
+   },
+   "over": {
+    "34": 0.008,
+    "50": 0.011,
+    "64": 0.026
+   },
+   "under": {
+    "34": 0.02,
+    "50": 0.023,
+    "64": 0.011
+   },
+   "drawnOverlap": {
+    "34": 0.968,
+    "64": 0.964
+   },
+   "cities": 0,
+   "citiesSame": 0,
+   "nhcFile": "February 11, 2015",
+   "reportsDiffering": "0 of 21",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep142014",
+   "name": "NORBERT",
+   "season": 2014,
+   "overlap": {
+    "34": 0.971,
+    "50": 0.983,
+    "64": 0.946
+   },
+   "over": {
+    "34": 0.007,
+    "50": 0.007,
+    "64": 0.04
+   },
+   "under": {
+    "34": 0.022,
+    "50": 0.01,
+    "64": 0.016
+   },
+   "drawnOverlap": {
+    "34": 0.967,
+    "64": 0.954
+   },
+   "cities": 1,
+   "citiesSame": 1,
+   "nhcFile": "November 24, 2014",
+   "reportsDiffering": "0 of 24",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep152014",
+   "name": "ODILE",
+   "season": 2014,
+   "overlap": {
+    "34": 0.985,
+    "50": 0.976,
+    "64": 0.962
+   },
+   "over": {
+    "34": 0.004,
+    "50": 0.009,
+    "64": 0.022
+   },
+   "under": {
+    "34": 0.011,
+    "50": 0.015,
+    "64": 0.017
+   },
+   "drawnOverlap": {
+    "34": 0.986,
+    "64": 0.957
+   },
+   "cities": 6,
+   "citiesSame": 6,
+   "nhcFile": "December 15, 2014",
+   "reportsDiffering": "0 of 31",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep192014",
+   "name": "SIMON",
+   "season": 2014,
+   "overlap": {
+    "34": 0.984,
+    "50": 0.959,
+    "64": 0.931
+   },
+   "over": {
+    "34": 0.011,
+    "50": 0.03,
+    "64": 0.074
+   },
+   "under": {
+    "34": 0.005,
+    "50": 0.012,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.986,
+    "64": 0.915
+   },
+   "cities": 0,
+   "citiesSame": 0,
+   "nhcFile": "January 13, 2015",
+   "reportsDiffering": "0 of 23",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al082014",
+   "name": "GONZALO",
+   "season": 2014,
+   "overlap": {
+    "34": 0.976,
+    "50": 0.975,
+    "64": 0.974
+   },
+   "over": {
+    "34": 0.022,
+    "50": 0.024,
+    "64": 0.016
+   },
+   "under": {
+    "34": 0.003,
+    "50": 0.001,
+    "64": 0.01
+   },
+   "drawnOverlap": {
+    "34": 0.977,
+    "64": 0.971
+   },
+   "cities": 1,
+   "citiesSame": 1,
+   "nhcFile": "January 12, 2015",
+   "reportsDiffering": "0 of 33",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep022015",
+   "name": "BLANCA",
+   "season": 2015,
+   "overlap": {
+    "34": 0.977,
+    "50": 0.985,
+    "64": 0.974
+   },
+   "over": {
+    "34": 0.016,
+    "50": 0.011,
+    "64": 0.022
+   },
+   "under": {
+    "34": 0.007,
+    "50": 0.004,
+    "64": 0.004
+   },
+   "drawnOverlap": {
+    "34": 0.975,
+    "64": 0.978
+   },
+   "cities": 1,
+   "citiesSame": 1,
+   "nhcFile": "November 30, 2015",
+   "reportsDiffering": "0 of 32",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep032015",
+   "name": "CARLOS",
+   "season": 2015,
+   "overlap": {
+    "34": 0.972,
+    "50": 0.945,
+    "64": 0.915
+   },
+   "over": {
+    "34": 0.004,
+    "50": 0.028,
+    "64": 0.06
+   },
+   "under": {
+    "34": 0.024,
+    "50": 0.029,
+    "64": 0.03
+   },
+   "drawnOverlap": {
+    "34": 0.976,
+    "64": 0.915
+   },
+   "cities": 2,
+   "citiesSame": 2,
+   "nhcFile": "November 4, 2015",
+   "reportsDiffering": "0 of 25",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "cp012015",
+   "name": "HALOLA",
+   "season": 2015,
+   "skipped": "no NHC swath"
+  },
+  {
+   "id": "cp032015",
+   "name": "KILO",
+   "season": 2015,
+   "skipped": "no NHC swath"
+  },
+  {
+   "id": "al112015",
+   "name": "JOAQUIN",
+   "season": 2015,
+   "overlap": {
+    "34": 0.99,
+    "50": 0.966,
+    "64": 0.948
+   },
+   "over": {
+    "34": 0.009,
+    "50": 0.024,
+    "64": 0.045
+   },
+   "under": {
+    "34": 0.001,
+    "50": 0.01,
+    "64": 0.009
+   },
+   "drawnOverlap": {
+    "34": 0.991,
+    "64": 0.947
+   },
+   "cities": 0,
+   "citiesSame": 0,
+   "nhcFile": "November 25, 2015",
+   "reportsDiffering": "0 of 41",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "cp072015",
+   "name": "OHO",
+   "season": 2015,
+   "skipped": "no NHC swath"
+  },
+  {
+   "id": "ep202015",
+   "name": "PATRICIA",
+   "season": 2015,
+   "overlap": {
+    "34": 0.728,
+    "50": 0.812,
+    "64": 0.857
+   },
+   "over": {
+    "34": 0.028,
+    "50": 0.064,
+    "64": 0.134
+   },
+   "under": {
+    "34": 0.252,
+    "50": 0.136,
+    "64": 0.029
+   },
+   "drawnOverlap": {
+    "34": 0.728,
+    "64": 0.857
+   },
+   "cities": 15,
+   "citiesSame": 4,
+   "nhcFile": "December 3, 2015",
+   "reportsDiffering": "12 of 15",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al012016",
+   "name": "ALEX",
+   "season": 2016,
+   "overlap": {
+    "34": 0.962,
+    "50": 0.936,
+    "64": 0.776
+   },
+   "over": {
+    "34": 0.012,
+    "50": 0.052,
+    "64": 0.259
+   },
+   "under": {
+    "34": 0.027,
+    "50": 0.015,
+    "64": 0.023
+   },
+   "drawnOverlap": {
+    "34": 0.958,
+    "64": 0.767
+   },
+   "cities": 0,
+   "citiesSame": 0,
+   "nhcFile": "September 13, 2016",
+   "reportsDiffering": "0 of 12",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep052016",
+   "name": "DARBY",
+   "season": 2016,
+   "overlap": {
+    "34": 0.936,
+    "50": 0.954,
+    "64": 0.959
+   },
+   "over": {
+    "34": 0.006,
+    "50": 0.04,
+    "64": 0.025
+   },
+   "under": {
+    "34": 0.059,
+    "50": 0.009,
+    "64": 0.017
+   },
+   "drawnOverlap": {
+    "34": 0.935,
+    "64": 0.959
+   },
+   "cities": 2,
+   "citiesSame": 0,
+   "nhcFile": "September 7, 2016",
+   "reportsDiffering": "9 of 52",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al052016",
+   "name": "EARL",
+   "season": 2016,
+   "overlap": {
+    "34": 0.95,
+    "50": 0.831,
+    "64": 0.47
+   },
+   "over": {
+    "34": 0.018,
+    "50": 0.114,
+    "64": 1.127
+   },
+   "under": {
+    "34": 0.033,
+    "50": 0.074,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.946,
+    "64": 0.47
+   },
+   "cities": 9,
+   "citiesSame": 6,
+   "nhcFile": "November 11, 2016",
+   "reportsDiffering": "1 of 19",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al092016",
+   "name": "HERMINE",
+   "season": 2016,
+   "overlap": {
+    "34": 0.973,
+    "50": 0.957,
+    "64": 0.771
+   },
+   "over": {
+    "34": 0.009,
+    "50": 0.029,
+    "64": 0.268
+   },
+   "under": {
+    "34": 0.019,
+    "50": 0.015,
+    "64": 0.022
+   },
+   "drawnOverlap": {
+    "34": 0.971,
+    "64": 0.758
+   },
+   "cities": 11,
+   "citiesSame": 10,
+   "nhcFile": "January 4, 2017",
+   "reportsDiffering": "1 of 15",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep152016",
+   "name": "NEWTON",
+   "season": 2016,
+   "overlap": {
+    "34": 0.964,
+    "50": 0.924,
+    "64": 0.919
+   },
+   "over": {
+    "34": 0.028,
+    "50": 0.043,
+    "64": 0.07
+   },
+   "under": {
+    "34": 0.009,
+    "50": 0.036,
+    "64": 0.018
+   },
+   "drawnOverlap": {
+    "34": 0.964,
+    "64": 0.896
+   },
+   "cities": 7,
+   "citiesSame": 6,
+   "nhcFile": "January 11, 2017",
+   "reportsDiffering": "1 of 14",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al142016",
+   "name": "MATTHEW",
+   "season": 2016,
+   "overlap": {
+    "34": 0.941,
+    "50": 0.966,
+    "64": 0.969
+   },
+   "over": {
+    "34": 0.049,
+    "50": 0.016,
+    "64": 0.021
+   },
+   "under": {
+    "34": 0.013,
+    "50": 0.019,
+    "64": 0.011
+   },
+   "drawnOverlap": {
+    "34": 0.941,
+    "64": 0.968
+   },
+   "cities": 40,
+   "citiesSame": 38,
+   "nhcFile": "February 23, 2017",
+   "reportsDiffering": "7 of 45",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al162016",
+   "name": "OTTO",
+   "season": 2016,
+   "overlap": {
+    "34": 0.988,
+    "50": 0.917,
+    "64": 0.885
+   },
+   "over": {
+    "34": 0.003,
+    "50": 0.09,
+    "64": 0.083
+   },
+   "under": {
+    "34": 0.009,
+    "50": 0,
+    "64": 0.042
+   },
+   "drawnOverlap": {
+    "34": 0.986,
+    "64": 0.8
+   },
+   "cities": 0,
+   "citiesSame": 0,
+   "nhcFile": "December 15, 2016",
+   "reportsDiffering": "2 of 23",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep042017",
+   "name": "DORA",
+   "season": 2017,
+   "overlap": {
+    "34": 0.987,
+    "50": 0.924,
+    "64": 0.843
+   },
+   "over": {
+    "34": 0,
+    "50": 0.054,
+    "64": 0.186
+   },
+   "under": {
+    "34": 0.013,
+    "50": 0.027,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.987,
+    "64": 0.827
+   },
+   "cities": 0,
+   "citiesSame": 0,
+   "nhcFile": "October 25, 2017",
+   "reportsDiffering": "0 of 13",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al072017",
+   "name": "FRANKLIN",
+   "season": 2017,
+   "overlap": {
+    "34": 0.946,
+    "50": 0.921,
+    "64": 0.482
+   },
+   "over": {
+    "34": 0.02,
+    "50": 0.069,
+    "64": 1.073
+   },
+   "under": {
+    "34": 0.035,
+    "50": 0.015,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.945,
+    "64": 0.466
+   },
+   "cities": 9,
+   "citiesSame": 9,
+   "nhcFile": "March 26, 2018",
+   "reportsDiffering": "0 of 16",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al092017",
+   "name": "HARVEY",
+   "season": 2017,
+   "overlap": {
+    "34": 0.958,
+    "50": 0.951,
+    "64": 0.906
+   },
+   "over": {
+    "34": 0.018,
+    "50": 0.026,
+    "64": 0.088
+   },
+   "under": {
+    "34": 0.024,
+    "50": 0.025,
+    "64": 0.015
+   },
+   "drawnOverlap": {
+    "34": 0.962,
+    "64": 0.919
+   },
+   "cities": 7,
+   "citiesSame": 6,
+   "nhcFile": "January 25, 2018",
+   "reportsDiffering": "0 of 38",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al112017",
+   "name": "IRMA",
+   "season": 2017,
+   "overlap": {
+    "34": 0.974,
+    "50": 0.982,
+    "64": 0.974
+   },
+   "over": {
+    "34": 0.005,
+    "50": 0.007,
+    "64": 0.013
+   },
+   "under": {
+    "34": 0.021,
+    "50": 0.012,
+    "64": 0.013
+   },
+   "drawnOverlap": {
+    "34": 0.972,
+    "64": 0.972
+   },
+   "cities": 69,
+   "citiesSame": 67,
+   "nhcFile": "March 12, 2018",
+   "reportsDiffering": "0 of 58",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al132017",
+   "name": "KATIA",
+   "season": 2017,
+   "overlap": {
+    "34": 0.937,
+    "50": 0.869,
+    "64": 0.869
+   },
+   "over": {
+    "34": 0.008,
+    "50": 0.07,
+    "64": 0.096
+   },
+   "under": {
+    "34": 0.056,
+    "50": 0.07,
+    "64": 0.048
+   },
+   "drawnOverlap": {
+    "34": 0.944,
+    "64": 0.869
+   },
+   "cities": 3,
+   "citiesSame": 2,
+   "nhcFile": "November 29, 2017",
+   "reportsDiffering": "0 of 13",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep162017",
+   "name": "MAX",
+   "season": 2017,
+   "overlap": {
+    "34": 0.985,
+    "50": 0.964,
+    "64": 0.75
+   },
+   "over": {
+    "34": 0,
+    "50": 0.037,
+    "64": 0.333
+   },
+   "under": {
+    "34": 0.015,
+    "50": 0,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.985,
+    "64": 0.75
+   },
+   "cities": 1,
+   "citiesSame": 1,
+   "nhcFile": "April 5, 2018",
+   "reportsDiffering": "0 of 6",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al152017",
+   "name": "MARIA",
+   "season": 2017,
+   "overlap": {
+    "34": 0.986,
+    "50": 0.981,
+    "64": 0.958
+   },
+   "over": {
+    "34": 0.005,
+    "50": 0.012,
+    "64": 0.02
+   },
+   "under": {
+    "34": 0.01,
+    "50": 0.007,
+    "64": 0.023
+   },
+   "drawnOverlap": {
+    "34": 0.986,
+    "64": 0.957
+   },
+   "cities": 13,
+   "citiesSame": 13,
+   "nhcFile": "April 9, 2018",
+   "reportsDiffering": "0 of 58",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al162017",
+   "name": "NATE",
+   "season": 2017,
+   "overlap": {
+    "34": 0.943,
+    "50": 0.876,
+    "64": 0.749
+   },
+   "over": {
+    "34": 0.038,
+    "50": 0.136,
+    "64": 0.334
+   },
+   "under": {
+    "34": 0.021,
+    "50": 0.005,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.946,
+    "64": 0.767
+   },
+   "cities": 4,
+   "citiesSame": 4,
+   "nhcFile": "April 9, 2018",
+   "reportsDiffering": "0 of 15",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al172017",
+   "name": "OPHELIA",
+   "season": 2017,
+   "overlap": {
+    "34": 0.976,
+    "50": 0.971,
+    "64": 0.973
+   },
+   "over": {
+    "34": 0.022,
+    "50": 0.029,
+    "64": 0.028
+   },
+   "under": {
+    "34": 0.003,
+    "50": 0.001,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.977,
+    "64": 0.971
+   },
+   "cities": 0,
+   "citiesSame": 0,
+   "nhcFile": "April 12, 2018",
+   "reportsDiffering": "0 of 31",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep032018",
+   "name": "BUD",
+   "season": 2018,
+   "overlap": {
+    "34": 0.971,
+    "50": 0.945,
+    "64": 0.883
+   },
+   "over": {
+    "34": 0.019,
+    "50": 0.046,
+    "64": 0.101
+   },
+   "under": {
+    "34": 0.011,
+    "50": 0.011,
+    "64": 0.028
+   },
+   "drawnOverlap": {
+    "34": 0.964,
+    "64": 0.872
+   },
+   "cities": 0,
+   "citiesSame": 0,
+   "nhcFile": "November 13, 2018",
+   "reportsDiffering": "0 of 25",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al022018",
+   "name": "BERYL",
+   "season": 2018,
+   "overlap": {
+    "34": 0.62,
+    "50": 0.903,
+    "64": 0.81
+   },
+   "over": {
+    "34": 0.574,
+    "50": 0.033,
+    "64": 0.167
+   },
+   "under": {
+    "34": 0.024,
+    "50": 0.067,
+    "64": 0.056
+   },
+   "drawnOverlap": {
+    "34": 0.617,
+    "64": 0.739
+   },
+   "cities": 1,
+   "citiesSame": 0,
+   "nhcFile": "October 29, 2018",
+   "reportsDiffering": "7 of 31",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al032018",
+   "name": "CHRIS",
+   "season": 2018,
+   "overlap": {
+    "34": 0.96,
+    "50": 0.986,
+    "64": 0.948
+   },
+   "over": {
+    "34": 0.041,
+    "50": 0.013,
+    "64": 0.043
+   },
+   "under": {
+    "34": 0.001,
+    "50": 0.001,
+    "64": 0.011
+   },
+   "drawnOverlap": {
+    "34": 0.964,
+    "64": 0.933
+   },
+   "cities": 1,
+   "citiesSame": 1,
+   "nhcFile": "December 20, 2018",
+   "reportsDiffering": "0 of 30",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al062018",
+   "name": "FLORENCE",
+   "season": 2018,
+   "overlap": {
+    "34": 0.978,
+    "50": 0.961,
+    "64": 0.948
+   },
+   "over": {
+    "34": 0.018,
+    "50": 0.028,
+    "64": 0.037
+   },
+   "under": {
+    "34": 0.004,
+    "50": 0.011,
+    "64": 0.017
+   },
+   "drawnOverlap": {
+    "34": 0.98,
+    "64": 0.949
+   },
+   "cities": 5,
+   "citiesSame": 4,
+   "nhcFile": "May 03, 2019",
+   "reportsDiffering": "1 of 63",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep172018",
+   "name": "OLIVIA",
+   "season": 2018,
+   "overlap": {
+    "34": 0.977,
+    "50": 0.969,
+    "64": 0.918
+   },
+   "over": {
+    "34": 0.018,
+    "50": 0.016,
+    "64": 0.039
+   },
+   "under": {
+    "34": 0.006,
+    "50": 0.015,
+    "64": 0.046
+   },
+   "drawnOverlap": {
+    "34": 0.975,
+    "64": 0.915
+   },
+   "cities": 1,
+   "citiesSame": 1,
+   "nhcFile": "July 26, 2019",
+   "reportsDiffering": "0 of 49",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al132018",
+   "name": "LESLIE",
+   "season": 2018,
+   "overlap": {
+    "34": 0.99,
+    "50": 0.971,
+    "64": 0.936
+   },
+   "over": {
+    "34": 0.009,
+    "50": 0.026,
+    "64": 0.06
+   },
+   "under": {
+    "34": 0.001,
+    "50": 0.003,
+    "64": 0.008
+   },
+   "drawnOverlap": {
+    "34": 0.992,
+    "64": 0.937
+   },
+   "cities": 8,
+   "citiesSame": 8,
+   "nhcFile": "April 03, 2019",
+   "reportsDiffering": "0 of 84",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep202018",
+   "name": "ROSA",
+   "season": 2018,
+   "overlap": {
+    "34": 0.986,
+    "50": 0.963,
+    "64": 0.939
+   },
+   "over": {
+    "34": 0.012,
+    "50": 0.02,
+    "64": 0.053
+   },
+   "under": {
+    "34": 0.003,
+    "50": 0.017,
+    "64": 0.012
+   },
+   "drawnOverlap": {
+    "34": 0.991,
+    "64": 0.933
+   },
+   "cities": 0,
+   "citiesSame": 0,
+   "nhcFile": "January 30, 2019",
+   "reportsDiffering": "0 of 26",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep212018",
+   "name": "SERGIO",
+   "season": 2018,
+   "overlap": {
+    "34": 0.987,
+    "50": 0.976,
+    "64": 0.937
+   },
+   "over": {
+    "34": 0.012,
+    "50": 0.019,
+    "64": 0.051
+   },
+   "under": {
+    "34": 0.001,
+    "50": 0.006,
+    "64": 0.015
+   },
+   "drawnOverlap": {
+    "34": 0.986,
+    "64": 0.942
+   },
+   "cities": 0,
+   "citiesSame": 0,
+   "nhcFile": "March 04, 2019",
+   "reportsDiffering": "0 of 53",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al142018",
+   "name": "MICHAEL",
+   "season": 2018,
+   "overlap": {
+    "34": 0.979,
+    "50": 0.972,
+    "64": 0.914
+   },
+   "over": {
+    "34": 0.02,
+    "50": 0.026,
+    "64": 0.09
+   },
+   "under": {
+    "34": 0.001,
+    "50": 0.003,
+    "64": 0.004
+   },
+   "drawnOverlap": {
+    "34": 0.982,
+    "64": 0.917
+   },
+   "cities": 28,
+   "citiesSame": 23,
+   "nhcFile": "April 19, 2019",
+   "reportsDiffering": "3 of 35",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep242018",
+   "name": "WILLA",
+   "season": 2018,
+   "overlap": {
+    "34": 0.977,
+    "50": 0.939,
+    "64": 0.964
+   },
+   "over": {
+    "34": 0.021,
+    "50": 0.053,
+    "64": 0.018
+   },
+   "under": {
+    "34": 0.002,
+    "50": 0.011,
+    "64": 0.018
+   },
+   "drawnOverlap": {
+    "34": 0.98,
+    "64": 0.964
+   },
+   "cities": 3,
+   "citiesSame": 3,
+   "nhcFile": "April 02, 2019",
+   "reportsDiffering": "2 of 17",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al022019",
+   "name": "BARRY",
+   "season": 2019,
+   "overlap": {
+    "34": 0.964,
+    "50": 0.933,
+    "64": 0.834
+   },
+   "over": {
+    "34": 0.026,
+    "50": 0.035,
+    "64": 0
+   },
+   "under": {
+    "34": 0.011,
+    "50": 0.034,
+    "64": 0.166
+   },
+   "drawnOverlap": {
+    "34": 0.954,
+    "64": 0.834
+   },
+   "cities": 4,
+   "citiesSame": 4,
+   "nhcFile": "November 18, 2019",
+   "reportsDiffering": "0 of 15",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al052019",
+   "name": "DORIAN",
+   "season": 2019,
+   "overlap": {
+    "34": 0.98,
+    "50": 0.978,
+    "64": 0.954
+   },
+   "over": {
+    "34": 0.016,
+    "50": 0.018,
+    "64": 0.037
+   },
+   "under": {
+    "34": 0.004,
+    "50": 0.005,
+    "64": 0.011
+   },
+   "drawnOverlap": {
+    "34": 0.982,
+    "64": 0.951
+   },
+   "cities": 17,
+   "citiesSame": 16,
+   "nhcFile": "April 27, 2020",
+   "reportsDiffering": "9 of 68",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep152019",
+   "name": "LORENA",
+   "season": 2019,
+   "overlap": {
+    "34": 0.95,
+    "50": 0.86,
+    "64": 0.612
+   },
+   "over": {
+    "34": 0.028,
+    "50": 0.091,
+    "64": 0.635
+   },
+   "under": {
+    "34": 0.023,
+    "50": 0.062,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.94,
+    "64": 0.612
+   },
+   "cities": 2,
+   "citiesSame": 2,
+   "nhcFile": "November 07, 2019",
+   "reportsDiffering": "0 of 20",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al132019",
+   "name": "LORENZO",
+   "season": 2019,
+   "overlap": {
+    "34": 0.983,
+    "50": 0.976,
+    "64": 0.975
+   },
+   "over": {
+    "34": 0.015,
+    "50": 0.023,
+    "64": 0.024
+   },
+   "under": {
+    "34": 0.002,
+    "50": 0.002,
+    "64": 0.002
+   },
+   "drawnOverlap": {
+    "34": 0.982,
+    "64": 0.974
+   },
+   "cities": 8,
+   "citiesSame": 7,
+   "nhcFile": "December 17, 2019",
+   "reportsDiffering": "0 of 45",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al082020",
+   "name": "HANNA",
+   "season": 2020,
+   "overlap": {
+    "34": 0.974,
+    "50": 0.889,
+    "64": 0.88
+   },
+   "over": {
+    "34": 0.024,
+    "50": 0.088,
+    "64": 0.042
+   },
+   "under": {
+    "34": 0.003,
+    "50": 0.033,
+    "64": 0.083
+   },
+   "drawnOverlap": {
+    "34": 0.967,
+    "64": 0.786
+   },
+   "cities": 7,
+   "citiesSame": 7,
+   "nhcFile": "February 12, 2021",
+   "reportsDiffering": "1 of 13",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al092020",
+   "name": "ISAIAS",
+   "season": 2020,
+   "overlap": {
+    "34": 0.975,
+    "50": 0.945,
+    "64": 0.815
+   },
+   "over": {
+    "34": 0.024,
+    "50": 0.055,
+    "64": 0.128
+   },
+   "under": {
+    "34": 0.002,
+    "50": 0.004,
+    "64": 0.08
+   },
+   "drawnOverlap": {
+    "34": 0.979,
+    "64": 0.816
+   },
+   "cities": 56,
+   "citiesSame": 51,
+   "nhcFile": "April 14, 2021",
+   "reportsDiffering": "2 of 35",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al132020",
+   "name": "LAURA",
+   "season": 2020,
+   "overlap": {
+    "34": 0.977,
+    "50": 0.956,
+    "64": 0.942
+   },
+   "over": {
+    "34": 0.021,
+    "50": 0.035,
+    "64": 0.052
+   },
+   "under": {
+    "34": 0.002,
+    "50": 0.011,
+    "64": 0.008
+   },
+   "drawnOverlap": {
+    "34": 0.979,
+    "64": 0.935
+   },
+   "cities": 38,
+   "citiesSame": 38,
+   "nhcFile": "May 28, 2021",
+   "reportsDiffering": "3 of 31",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al162020",
+   "name": "NANA",
+   "season": 2020,
+   "overlap": {
+    "34": 0.943,
+    "50": 0.622,
+    "64": 0.334
+   },
+   "over": {
+    "34": 0.054,
+    "50": 0.476,
+    "64": 0
+   },
+   "under": {
+    "34": 0.006,
+    "50": 0.082,
+    "64": 0.666
+   },
+   "drawnOverlap": {
+    "34": 0.94,
+    "64": 0.286
+   },
+   "cities": 1,
+   "citiesSame": 1,
+   "nhcFile": "December 09, 2020",
+   "reportsDiffering": "0 of 10",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al172020",
+   "name": "PAULETTE",
+   "season": 2020,
+   "overlap": {
+    "34": 0.984,
+    "50": 0.973,
+    "64": 0.975
+   },
+   "over": {
+    "34": 0.013,
+    "50": 0.023,
+    "64": 0.02
+   },
+   "under": {
+    "34": 0.003,
+    "50": 0.005,
+    "64": 0.006
+   },
+   "drawnOverlap": {
+    "34": 0.984,
+    "64": 0.976
+   },
+   "cities": 0,
+   "citiesSame": 0,
+   "nhcFile": "April 06, 2021",
+   "reportsDiffering": "1 of 72",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al202020",
+   "name": "TEDDY",
+   "season": 2020,
+   "overlap": {
+    "34": 0.981,
+    "50": 0.981,
+    "64": 0.975
+   },
+   "over": {
+    "34": 0.013,
+    "50": 0.012,
+    "64": 0.015
+   },
+   "under": {
+    "34": 0.006,
+    "50": 0.007,
+    "64": 0.011
+   },
+   "drawnOverlap": {
+    "34": 0.982,
+    "64": 0.975
+   },
+   "cities": 1,
+   "citiesSame": 1,
+   "nhcFile": "April 28, 2021",
+   "reportsDiffering": "0 of 42",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al192020",
+   "name": "SALLY",
+   "season": 2020,
+   "overlap": {
+    "34": 0.967,
+    "50": 0.936,
+    "64": 0.978
+   },
+   "over": {
+    "34": 0.025,
+    "50": 0.06,
+    "64": 0.023
+   },
+   "under": {
+    "34": 0.009,
+    "50": 0.008,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.965,
+    "64": 0.978
+   },
+   "cities": 8,
+   "citiesSame": 8,
+   "nhcFile": "April 14, 2021",
+   "reportsDiffering": "1 of 20",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al252020",
+   "name": "GAMMA",
+   "season": 2020,
+   "overlap": {
+    "34": 0.967,
+    "50": 0.848,
+    "64": 0
+   },
+   "over": {
+    "34": 0.031,
+    "50": 0.105,
+    "64": 1.878
+   },
+   "under": {
+    "34": 0.003,
+    "50": 0.063,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.991,
+    "64": 0
+   },
+   "cities": 1,
+   "citiesSame": 1,
+   "nhcFile": "April 20, 2021",
+   "reportsDiffering": "1 of 13",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al262020",
+   "name": "DELTA",
+   "season": 2020,
+   "overlap": {
+    "34": 0.978,
+    "50": 0.948,
+    "64": 0.915
+   },
+   "over": {
+    "34": 0.017,
+    "50": 0.038,
+    "64": 0.068
+   },
+   "under": {
+    "34": 0.006,
+    "50": 0.017,
+    "64": 0.023
+   },
+   "drawnOverlap": {
+    "34": 0.976,
+    "64": 0.912
+   },
+   "cities": 8,
+   "citiesSame": 7,
+   "nhcFile": "March 31, 2021",
+   "reportsDiffering": "1 of 23",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al282020",
+   "name": "ZETA",
+   "season": 2020,
+   "overlap": {
+    "34": 0.972,
+    "50": 0.934,
+    "64": 0.837
+   },
+   "over": {
+    "34": 0.023,
+    "50": 0.056,
+    "64": 0.142
+   },
+   "under": {
+    "34": 0.006,
+    "50": 0.014,
+    "64": 0.044
+   },
+   "drawnOverlap": {
+    "34": 0.971,
+    "64": 0.837
+   },
+   "cities": 47,
+   "citiesSame": 47,
+   "nhcFile": "May 11, 2021",
+   "reportsDiffering": "1 of 22",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al292020",
+   "name": "ETA",
+   "season": 2020,
+   "overlap": {
+    "34": 0.97,
+    "50": 0.921,
+    "64": 0.808
+   },
+   "over": {
+    "34": 0.026,
+    "50": 0.06,
+    "64": 0.17
+   },
+   "under": {
+    "34": 0.005,
+    "50": 0.023,
+    "64": 0.054
+   },
+   "drawnOverlap": {
+    "34": 0.971,
+    "64": 0.808
+   },
+   "cities": 31,
+   "citiesSame": 31,
+   "nhcFile": "June 09, 2021",
+   "reportsDiffering": "2 of 47",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al312020",
+   "name": "IOTA",
+   "season": 2020,
+   "overlap": {
+    "34": 0.983,
+    "50": 0.964,
+    "64": 0.946
+   },
+   "over": {
+    "34": 0.016,
+    "50": 0.029,
+    "64": 0.037
+   },
+   "under": {
+    "34": 0.001,
+    "50": 0.007,
+    "64": 0.019
+   },
+   "drawnOverlap": {
+    "34": 0.976,
+    "64": 0.946
+   },
+   "cities": 3,
+   "citiesSame": 3,
+   "nhcFile": "May 18, 2021",
+   "reportsDiffering": "1 of 20",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al052021",
+   "name": "ELSA",
+   "season": 2021,
+   "overlap": {
+    "34": 0.962,
+    "50": 0.866,
+    "64": 0.736
+   },
+   "over": {
+    "34": 0.036,
+    "50": 0.128,
+    "64": 0.314
+   },
+   "under": {
+    "34": 0.004,
+    "50": 0.023,
+    "64": 0.033
+   },
+   "drawnOverlap": {
+    "34": 0.963,
+    "64": 0.726
+   },
+   "cities": 32,
+   "citiesSame": 28,
+   "nhcFile": "February 11, 2022",
+   "reportsDiffering": "2 of 41",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep122021",
+   "name": "LINDA",
+   "season": 2021,
+   "overlap": {
+    "34": 0.97,
+    "50": 0.958,
+    "64": 0.931
+   },
+   "over": {
+    "34": 0.013,
+    "50": 0.032,
+    "64": 0.05
+   },
+   "under": {
+    "34": 0.018,
+    "50": 0.012,
+    "64": 0.022
+   },
+   "drawnOverlap": {
+    "34": 0.968,
+    "64": 0.937
+   },
+   "cities": 0,
+   "citiesSame": 0,
+   "nhcFile": "December 08, 2021",
+   "reportsDiffering": "3 of 41",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al072021",
+   "name": "GRACE",
+   "season": 2021,
+   "overlap": {
+    "34": 0.966,
+    "50": 0.899,
+    "64": 0.8
+   },
+   "over": {
+    "34": 0.034,
+    "50": 0.109,
+    "64": 0.202
+   },
+   "under": {
+    "34": 0.001,
+    "50": 0.003,
+    "64": 0.038
+   },
+   "drawnOverlap": {
+    "34": 0.974,
+    "64": 0.795
+   },
+   "cities": 12,
+   "citiesSame": 12,
+   "nhcFile": "February 18, 2022",
+   "reportsDiffering": "4 of 27",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al082021",
+   "name": "HENRI",
+   "season": 2021,
+   "overlap": {
+    "34": 0.978,
+    "50": 0.962,
+    "64": 0.801
+   },
+   "over": {
+    "34": 0.021,
+    "50": 0.039,
+    "64": 0.249
+   },
+   "under": {
+    "34": 0.001,
+    "50": 0,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.978,
+    "64": 0.801
+   },
+   "cities": 3,
+   "citiesSame": 2,
+   "nhcFile": "January 25, 2022",
+   "reportsDiffering": "2 of 27",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep142021",
+   "name": "NORA",
+   "season": 2021,
+   "overlap": {
+    "34": 0.977,
+    "50": 0.944,
+    "64": 0.889
+   },
+   "over": {
+    "34": 0.011,
+    "50": 0.014,
+    "64": 0.047
+   },
+   "under": {
+    "34": 0.013,
+    "50": 0.043,
+    "64": 0.069
+   },
+   "drawnOverlap": {
+    "34": 0.978,
+    "64": 0.891
+   },
+   "cities": 7,
+   "citiesSame": 6,
+   "nhcFile": "March 04, 2022",
+   "reportsDiffering": "0 of 19",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al092021",
+   "name": "IDA",
+   "season": 2021,
+   "overlap": {
+    "34": 0.958,
+    "50": 0.948,
+    "64": 0.922
+   },
+   "over": {
+    "34": 0.039,
+    "50": 0.039,
+    "64": 0.063
+   },
+   "under": {
+    "34": 0.005,
+    "50": 0.016,
+    "64": 0.02
+   },
+   "drawnOverlap": {
+    "34": 0.969,
+    "64": 0.903
+   },
+   "cities": 17,
+   "citiesSame": 13,
+   "nhcFile": "April 05, 2022",
+   "reportsDiffering": "2 of 30",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al122021",
+   "name": "LARRY",
+   "season": 2021,
+   "overlap": {
+    "34": 0.982,
+    "50": 0.966,
+    "64": 0.953
+   },
+   "over": {
+    "34": 0.015,
+    "50": 0.032,
+    "64": 0.035
+   },
+   "under": {
+    "34": 0.003,
+    "50": 0.003,
+    "64": 0.014
+   },
+   "drawnOverlap": {
+    "34": 0.984,
+    "64": 0.955
+   },
+   "cities": 1,
+   "citiesSame": 1,
+   "nhcFile": "December 16, 2021",
+   "reportsDiffering": "1 of 45",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep152021",
+   "name": "OLAF",
+   "season": 2021,
+   "overlap": {
+    "34": 0.972,
+    "50": 0.918,
+    "64": 0.9
+   },
+   "over": {
+    "34": 0.021,
+    "50": 0.058,
+    "64": 0.111
+   },
+   "under": {
+    "34": 0.007,
+    "50": 0.029,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.983,
+    "64": 0.882
+   },
+   "cities": 1,
+   "citiesSame": 1,
+   "nhcFile": "January 10, 2022",
+   "reportsDiffering": "1 of 12",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al142021",
+   "name": "NICHOLAS",
+   "season": 2021,
+   "overlap": {
+    "34": 0.983,
+    "50": 0.938,
+    "64": 0.13
+   },
+   "over": {
+    "34": 0.012,
+    "50": 0.067,
+    "64": 6.71
+   },
+   "under": {
+    "34": 0.005,
+    "50": 0,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.983,
+    "64": 0.13
+   },
+   "cities": 3,
+   "citiesSame": 3,
+   "nhcFile": "March 01, 2022",
+   "reportsDiffering": "2 of 11",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep162021",
+   "name": "PAMELA",
+   "season": 2021,
+   "overlap": {
+    "34": 0.962,
+    "50": 0.938,
+    "64": 0.799
+   },
+   "over": {
+    "34": 0.035,
+    "50": 0.066,
+    "64": 0.166
+   },
+   "under": {
+    "34": 0.004,
+    "50": 0,
+    "64": 0.068
+   },
+   "drawnOverlap": {
+    "34": 0.969,
+    "64": 0.799
+   },
+   "cities": 2,
+   "citiesSame": 2,
+   "nhcFile": "November 29, 2021",
+   "reportsDiffering": "0 of 15",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep172021",
+   "name": "RICK",
+   "season": 2021,
+   "overlap": {
+    "34": 0.968,
+    "50": 0.926,
+    "64": 0.821
+   },
+   "over": {
+    "34": 0.021,
+    "50": 0.025,
+    "64": 0.084
+   },
+   "under": {
+    "34": 0.011,
+    "50": 0.05,
+    "64": 0.11
+   },
+   "drawnOverlap": {
+    "34": 0.968,
+    "64": 0.78
+   },
+   "cities": 2,
+   "citiesSame": 2,
+   "nhcFile": "January 25, 2022",
+   "reportsDiffering": "0 of 14",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep012022",
+   "name": "AGATHA",
+   "season": 2022,
+   "overlap": {
+    "34": 0.97,
+    "50": 0.936,
+    "64": 0.933
+   },
+   "over": {
+    "34": 0.02,
+    "50": 0.013,
+    "64": 0.035
+   },
+   "under": {
+    "34": 0.01,
+    "50": 0.052,
+    "64": 0.035
+   },
+   "drawnOverlap": {
+    "34": 0.97,
+    "64": 0.933
+   },
+   "cities": 0,
+   "citiesSame": 0,
+   "nhcFile": "December 06, 2022",
+   "reportsDiffering": "0 of 13",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al022022",
+   "name": "BONNIE",
+   "season": 2022,
+   "overlap": {
+    "34": 0.97,
+    "50": 0.935,
+    "64": 0.848
+   },
+   "over": {
+    "34": 0.021,
+    "50": 0.046,
+    "64": 0.111
+   },
+   "under": {
+    "34": 0.01,
+    "50": 0.023,
+    "64": 0.058
+   },
+   "drawnOverlap": {
+    "34": 0.967,
+    "64": 0.849
+   },
+   "cities": 5,
+   "citiesSame": 5,
+   "nhcFile": "March 20, 2023",
+   "reportsDiffering": "0 of 51",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep122022",
+   "name": "KAY",
+   "season": 2022,
+   "overlap": {
+    "34": 0.984,
+    "50": 0.954,
+    "64": 0.908
+   },
+   "over": {
+    "34": 0.013,
+    "50": 0.035,
+    "64": 0.052
+   },
+   "under": {
+    "34": 0.003,
+    "50": 0.012,
+    "64": 0.045
+   },
+   "drawnOverlap": {
+    "34": 0.984,
+    "64": 0.902
+   },
+   "cities": 3,
+   "citiesSame": 3,
+   "nhcFile": "April 03, 2023",
+   "reportsDiffering": "1 of 23",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al072022",
+   "name": "FIONA",
+   "season": 2022,
+   "overlap": {
+    "34": 0.972,
+    "50": 0.982,
+    "64": 0.973
+   },
+   "over": {
+    "34": 0.028,
+    "50": 0.015,
+    "64": 0.024
+   },
+   "under": {
+    "34": 0.001,
+    "50": 0.003,
+    "64": 0.003
+   },
+   "drawnOverlap": {
+    "34": 0.975,
+    "64": 0.97
+   },
+   "cities": 14,
+   "citiesSame": 13,
+   "nhcFile": "March 23, 2023",
+   "reportsDiffering": "3 of 58",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al092022",
+   "name": "IAN",
+   "season": 2022,
+   "overlap": {
+    "34": 0.979,
+    "50": 0.97,
+    "64": 0.912
+   },
+   "over": {
+    "34": 0.014,
+    "50": 0.019,
+    "64": 0.071
+   },
+   "under": {
+    "34": 0.007,
+    "50": 0.012,
+    "64": 0.023
+   },
+   "drawnOverlap": {
+    "34": 0.978,
+    "64": 0.906
+   },
+   "cities": 33,
+   "citiesSame": 32,
+   "nhcFile": "April 03, 2023",
+   "reportsDiffering": "3 of 34",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep162022",
+   "name": "ORLENE",
+   "season": 2022,
+   "overlap": {
+    "34": 0.953,
+    "50": 0.896,
+    "64": 0.953
+   },
+   "over": {
+    "34": 0.039,
+    "50": 0.104,
+    "64": 0.05
+   },
+   "under": {
+    "34": 0.01,
+    "50": 0.011,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.956,
+    "64": 0.953
+   },
+   "cities": 1,
+   "citiesSame": 1,
+   "nhcFile": "March 09, 2023",
+   "reportsDiffering": "1 of 21",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al132022",
+   "name": "JULIA",
+   "season": 2022,
+   "overlap": {
+    "34": 0.966,
+    "50": 0.872,
+    "64": 0.833
+   },
+   "over": {
+    "34": 0.033,
+    "50": 0.127,
+    "64": 0.154
+   },
+   "under": {
+    "34": 0.002,
+    "50": 0.017,
+    "64": 0.038
+   },
+   "drawnOverlap": {
+    "34": 0.975,
+    "64": 0.833
+   },
+   "cities": 11,
+   "citiesSame": 11,
+   "nhcFile": "March 03, 2023",
+   "reportsDiffering": "1 of 14",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep192022",
+   "name": "ROSLYN",
+   "season": 2022,
+   "overlap": {
+    "34": 0.978,
+    "50": 0.927,
+    "64": 0.911
+   },
+   "over": {
+    "34": 0.012,
+    "50": 0.049,
+    "64": 0.097
+   },
+   "under": {
+    "34": 0.01,
+    "50": 0.028,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.919,
+    "64": 0.911
+   },
+   "cities": 3,
+   "citiesSame": 3,
+   "nhcFile": "February 15, 2023",
+   "reportsDiffering": "1 of 15",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al152022",
+   "name": "LISA",
+   "season": 2022,
+   "overlap": {
+    "34": 0.973,
+    "50": 0.86,
+    "64": 0.769
+   },
+   "over": {
+    "34": 0.019,
+    "50": 0.137,
+    "64": 0.3
+   },
+   "under": {
+    "34": 0.008,
+    "50": 0.023,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.965,
+    "64": 0.769
+   },
+   "cities": 0,
+   "citiesSame": 0,
+   "nhcFile": "March 14, 2023",
+   "reportsDiffering": "1 of 16",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al172022",
+   "name": "NICOLE",
+   "season": 2022,
+   "overlap": {
+    "34": 0.981,
+    "50": 0.93,
+    "64": 0.715
+   },
+   "over": {
+    "34": 0.019,
+    "50": 0.058,
+    "64": 0.333
+   },
+   "under": {
+    "34": 0.001,
+    "50": 0.016,
+    "64": 0.048
+   },
+   "drawnOverlap": {
+    "34": 0.984,
+    "64": 0.715
+   },
+   "cities": 27,
+   "citiesSame": 27,
+   "nhcFile": "March 17, 2023",
+   "reportsDiffering": "1 of 22",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep022023",
+   "name": "BEATRIZ",
+   "season": 2023,
+   "overlap": {
+    "34": 0.922,
+    "50": 0.877,
+    "64": 0.944
+   },
+   "over": {
+    "34": 0.06,
+    "50": 0.076,
+    "64": 0
+   },
+   "under": {
+    "34": 0.022,
+    "50": 0.057,
+    "64": 0.056
+   },
+   "drawnOverlap": {
+    "34": 0.937,
+    "64": 0.894
+   },
+   "cities": 3,
+   "citiesSame": 3,
+   "nhcFile": "January 18, 2024",
+   "reportsDiffering": "0 of 8",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep092023",
+   "name": "HILARY",
+   "season": 2023,
+   "overlap": {
+    "34": 0.985,
+    "50": 0.977,
+    "64": 0.941
+   },
+   "over": {
+    "34": 0.012,
+    "50": 0.016,
+    "64": 0.043
+   },
+   "under": {
+    "34": 0.004,
+    "50": 0.007,
+    "64": 0.019
+   },
+   "drawnOverlap": {
+    "34": 0.985,
+    "64": 0.938
+   },
+   "cities": 6,
+   "citiesSame": 6,
+   "nhcFile": "February 12, 2024",
+   "reportsDiffering": "0 of 20",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al082023",
+   "name": "FRANKLIN",
+   "season": 2023,
+   "overlap": {
+    "34": 0.983,
+    "50": 0.974,
+    "64": 0.968
+   },
+   "over": {
+    "34": 0.015,
+    "50": 0.023,
+    "64": 0.024
+   },
+   "under": {
+    "34": 0.002,
+    "50": 0.004,
+    "64": 0.009
+   },
+   "drawnOverlap": {
+    "34": 0.983,
+    "64": 0.964
+   },
+   "cities": 6,
+   "citiesSame": 6,
+   "nhcFile": "April 03, 2024",
+   "reportsDiffering": "0 of 76",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al102023",
+   "name": "IDALIA",
+   "season": 2023,
+   "overlap": {
+    "34": 0.986,
+    "50": 0.958,
+    "64": 0.917
+   },
+   "over": {
+    "34": 0.012,
+    "50": 0.04,
+    "64": 0.074
+   },
+   "under": {
+    "34": 0.003,
+    "50": 0.004,
+    "64": 0.015
+   },
+   "drawnOverlap": {
+    "34": 0.986,
+    "64": 0.917
+   },
+   "cities": 20,
+   "citiesSame": 20,
+   "nhcFile": "February 13, 2024",
+   "reportsDiffering": "1 of 43",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al132023",
+   "name": "LEE",
+   "season": 2023,
+   "overlap": {
+    "34": 0.95,
+    "50": 0.955,
+    "64": 0.921
+   },
+   "over": {
+    "34": 0.016,
+    "50": 0.028,
+    "64": 0.059
+   },
+   "under": {
+    "34": 0.034,
+    "50": 0.018,
+    "64": 0.024
+   },
+   "drawnOverlap": {
+    "34": 0.951,
+    "64": 0.924
+   },
+   "cities": 7,
+   "citiesSame": 6,
+   "nhcFile": "September 17, 2023",
+   "reportsDiffering": "17 of 49",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep152023",
+   "name": "LIDIA",
+   "season": 2023,
+   "overlap": {
+    "34": 0.966,
+    "50": 0.937,
+    "64": 0.935
+   },
+   "over": {
+    "34": 0.028,
+    "50": 0.055,
+    "64": 0.07
+   },
+   "under": {
+    "34": 0.007,
+    "50": 0.012,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.926,
+    "64": 0.923
+   },
+   "cities": 7,
+   "citiesSame": 7,
+   "nhcFile": "March 18, 2024",
+   "reportsDiffering": "0 of 33",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep172023",
+   "name": "NORMA",
+   "season": 2023,
+   "overlap": {
+    "34": 0.986,
+    "50": 0.965,
+    "64": 0.933
+   },
+   "over": {
+    "34": 0.01,
+    "50": 0.026,
+    "64": 0.063
+   },
+   "under": {
+    "34": 0.004,
+    "50": 0.01,
+    "64": 0.009
+   },
+   "drawnOverlap": {
+    "34": 0.987,
+    "64": 0.916
+   },
+   "cities": 3,
+   "citiesSame": 3,
+   "nhcFile": "March 15, 2024",
+   "reportsDiffering": "1 of 24",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al202023",
+   "name": "TAMMY",
+   "season": 2023,
+   "overlap": {
+    "34": 0.979,
+    "50": 0.955,
+    "64": 0.889
+   },
+   "over": {
+    "34": 0.018,
+    "50": 0.038,
+    "64": 0.078
+   },
+   "under": {
+    "34": 0.003,
+    "50": 0.008,
+    "64": 0.042
+   },
+   "drawnOverlap": {
+    "34": 0.978,
+    "64": 0.894
+   },
+   "cities": 1,
+   "citiesSame": 1,
+   "nhcFile": "March 08, 2024",
+   "reportsDiffering": "1 of 46",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep182023",
+   "name": "OTIS",
+   "season": 2023,
+   "overlap": {
+    "34": 0.953,
+    "50": 0.932,
+    "64": 0.867
+   },
+   "over": {
+    "34": 0.03,
+    "50": 0.047,
+    "64": 0.046
+   },
+   "under": {
+    "34": 0.018,
+    "50": 0.024,
+    "64": 0.093
+   },
+   "drawnOverlap": {
+    "34": 0.949,
+    "64": 0.848
+   },
+   "cities": 2,
+   "citiesSame": 2,
+   "nhcFile": "March 07, 2024",
+   "reportsDiffering": "1 of 14",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al022024",
+   "name": "BERYL",
+   "season": 2024,
+   "overlap": {
+    "34": 0.97,
+    "50": 0.952,
+    "64": 0.936
+   },
+   "over": {
+    "34": 0.026,
+    "50": 0.037,
+    "64": 0.045
+   },
+   "under": {
+    "34": 0.005,
+    "50": 0.013,
+    "64": 0.022
+   },
+   "drawnOverlap": {
+    "34": 0.971,
+    "64": 0.929
+   },
+   "cities": 12,
+   "citiesSame": 11,
+   "nhcFile": "January 23, 2025",
+   "reportsDiffering": "3 of 44",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep032024",
+   "name": "CARLOTTA",
+   "season": 2024,
+   "overlap": {
+    "34": 0.951,
+    "50": 0.922,
+    "64": 0.891
+   },
+   "over": {
+    "34": 0.035,
+    "50": 0.065,
+    "64": 0.046
+   },
+   "under": {
+    "34": 0.016,
+    "50": 0.018,
+    "64": 0.068
+   },
+   "drawnOverlap": {
+    "34": 0.959,
+    "64": 0.872
+   },
+   "cities": 0,
+   "citiesSame": 0,
+   "nhcFile": "November 19, 2024",
+   "reportsDiffering": "0 of 24",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al042024",
+   "name": "DEBBY",
+   "season": 2024,
+   "overlap": {
+    "34": 0.929,
+    "50": 0.951,
+    "64": 0.856
+   },
+   "over": {
+    "34": 0.075,
+    "50": 0.051,
+    "64": 0.169
+   },
+   "under": {
+    "34": 0.001,
+    "50": 0,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.979,
+    "64": 0.817
+   },
+   "cities": 21,
+   "citiesSame": 21,
+   "nhcFile": "January 23, 2025",
+   "reportsDiffering": "0 of 24",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al052024",
+   "name": "ERNESTO",
+   "season": 2024,
+   "overlap": {
+    "34": 0.98,
+    "50": 0.977,
+    "64": 0.942
+   },
+   "over": {
+    "34": 0.018,
+    "50": 0.021,
+    "64": 0.047
+   },
+   "under": {
+    "34": 0.002,
+    "50": 0.003,
+    "64": 0.014
+   },
+   "drawnOverlap": {
+    "34": 0.985,
+    "64": 0.928
+   },
+   "cities": 3,
+   "citiesSame": 3,
+   "nhcFile": "March 04, 2025",
+   "reportsDiffering": "3 of 37",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al062024",
+   "name": "FRANCINE",
+   "season": 2024,
+   "overlap": {
+    "34": 0.963,
+    "50": 0.972,
+    "64": 0.946
+   },
+   "over": {
+    "34": 0.033,
+    "50": 0.029,
+    "64": 0.057
+   },
+   "under": {
+    "34": 0.005,
+    "50": 0,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.962,
+    "64": 0.936
+   },
+   "cities": 5,
+   "citiesSame": 4,
+   "nhcFile": "March 10, 2025",
+   "reportsDiffering": "0 of 16",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep102024",
+   "name": "JOHN",
+   "season": 2024,
+   "overlap": {
+    "34": 0.947,
+    "50": 0.896,
+    "64": 0.786
+   },
+   "over": {
+    "34": 0.047,
+    "50": 0.074,
+    "64": 0.273
+   },
+   "under": {
+    "34": 0.009,
+    "50": 0.037,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.955,
+    "64": 0.786
+   },
+   "cities": 2,
+   "citiesSame": 2,
+   "nhcFile": "February 10, 2025",
+   "reportsDiffering": "1 of 19",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al092024",
+   "name": "HELENE",
+   "season": 2024,
+   "overlap": {
+    "34": 0.979,
+    "50": 0.933,
+    "64": 0.897
+   },
+   "over": {
+    "34": 0.02,
+    "50": 0.027,
+    "64": 0.115
+   },
+   "under": {
+    "34": 0.001,
+    "50": 0.042,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.982,
+    "64": 0.9
+   },
+   "cities": 58,
+   "citiesSame": 55,
+   "nhcFile": "March 19, 2025",
+   "reportsDiffering": "1 of 20",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al122024",
+   "name": "KIRK",
+   "season": 2024,
+   "overlap": {
+    "34": 0.977,
+    "50": 0.983,
+    "64": 0.955
+   },
+   "over": {
+    "34": 0.021,
+    "50": 0.015,
+    "64": 0.033
+   },
+   "under": {
+    "34": 0.002,
+    "50": 0.002,
+    "64": 0.014
+   },
+   "drawnOverlap": {
+    "34": 0.989,
+    "64": 0.952
+   },
+   "cities": 73,
+   "citiesSame": 57,
+   "nhcFile": "February 27, 2025",
+   "reportsDiffering": "0 of 39",
+   "strayPiecesDropped": 6
+  },
+  {
+   "id": "al142024",
+   "name": "MILTON",
+   "season": 2024,
+   "overlap": {
+    "34": 0.985,
+    "50": 0.974,
+    "64": 0.945
+   },
+   "over": {
+    "34": 0.013,
+    "50": 0.02,
+    "64": 0.037
+   },
+   "under": {
+    "34": 0.002,
+    "50": 0.006,
+    "64": 0.02
+   },
+   "drawnOverlap": {
+    "34": 0.986,
+    "64": 0.937
+   },
+   "cities": 27,
+   "citiesSame": 26,
+   "nhcFile": "March 31, 2025",
+   "reportsDiffering": "3 of 30",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al162024",
+   "name": "OSCAR",
+   "season": 2024,
+   "overlap": {
+    "34": 0.978,
+    "50": 0.875,
+    "64": 0.923
+   },
+   "over": {
+    "34": 0.011,
+    "50": 0.067,
+    "64": 0.083
+   },
+   "under": {
+    "34": 0.011,
+    "50": 0.066,
+    "64": 0
+   },
+   "drawnOverlap": {
+    "34": 0.971,
+    "64": 0.923
+   },
+   "cities": 3,
+   "citiesSame": 1,
+   "nhcFile": "March 11, 2025",
+   "reportsDiffering": "1 of 17",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al182024",
+   "name": "RAFAEL",
+   "season": 2024,
+   "overlap": {
+    "34": 0.978,
+    "50": 0.939,
+    "64": 0.873
+   },
+   "over": {
+    "34": 0.015,
+    "50": 0.058,
+    "64": 0.078
+   },
+   "under": {
+    "34": 0.007,
+    "50": 0.007,
+    "64": 0.06
+   },
+   "drawnOverlap": {
+    "34": 0.979,
+    "64": 0.874
+   },
+   "cities": 8,
+   "citiesSame": 8,
+   "nhcFile": "March 10, 2025",
+   "reportsDiffering": "1 of 25",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep052025",
+   "name": "ERICK",
+   "season": 2025,
+   "overlap": {
+    "34": 0.957,
+    "50": 0.921,
+    "64": 0.762
+   },
+   "over": {
+    "34": 0.014,
+    "50": 0.052,
+    "64": 0.272
+   },
+   "under": {
+    "34": 0.029,
+    "50": 0.031,
+    "64": 0.03
+   },
+   "drawnOverlap": {
+    "34": 0.929,
+    "64": 0.638
+   },
+   "cities": 2,
+   "citiesSame": 2,
+   "nhcFile": "November 10, 2025",
+   "reportsDiffering": "1 of 11",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al052025",
+   "name": "ERIN",
+   "season": 2025,
+   "overlap": {
+    "34": 0.978,
+    "50": 0.98,
+    "64": 0.979
+   },
+   "over": {
+    "34": 0.02,
+    "50": 0.018,
+    "64": 0.018
+   },
+   "under": {
+    "34": 0.002,
+    "50": 0.002,
+    "64": 0.003
+   },
+   "drawnOverlap": {
+    "34": 0.98,
+    "64": 0.98
+   },
+   "cities": 0,
+   "citiesSame": 0,
+   "nhcFile": "January 16, 2026",
+   "reportsDiffering": "0 of 67",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al072025",
+   "name": "GABRIELLE",
+   "season": 2025,
+   "overlap": {
+    "34": 0.984,
+    "50": 0.974,
+    "64": 0.933
+   },
+   "over": {
+    "34": 0.014,
+    "50": 0.022,
+    "64": 0.057
+   },
+   "under": {
+    "34": 0.003,
+    "50": 0.004,
+    "64": 0.014
+   },
+   "drawnOverlap": {
+    "34": 0.983,
+    "64": 0.928
+   },
+   "cities": 7,
+   "citiesSame": 7,
+   "nhcFile": "December 17, 2025",
+   "reportsDiffering": "0 of 44",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al092025",
+   "name": "IMELDA",
+   "season": 2025,
+   "overlap": {
+    "34": 0.986,
+    "50": 0.968,
+    "64": 0.946
+   },
+   "over": {
+    "34": 0.012,
+    "50": 0.03,
+    "64": 0.046
+   },
+   "under": {
+    "34": 0.002,
+    "50": 0.003,
+    "64": 0.011
+   },
+   "drawnOverlap": {
+    "34": 0.987,
+    "64": 0.943
+   },
+   "cities": 1,
+   "citiesSame": 1,
+   "nhcFile": "January 27, 2026",
+   "reportsDiffering": "0 of 30",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al132025",
+   "name": "MELISSA",
+   "season": 2025,
+   "overlap": {
+    "34": 0.979,
+    "50": 0.977,
+    "64": 0.959
+   },
+   "over": {
+    "34": 0.021,
+    "50": 0.023,
+    "64": 0.039
+   },
+   "under": {
+    "34": 0.001,
+    "50": 0.001,
+    "64": 0.003
+   },
+   "drawnOverlap": {
+    "34": 0.981,
+    "64": 0.947
+   },
+   "cities": 12,
+   "citiesSame": 12,
+   "nhcFile": "February 25, 2026",
+   "reportsDiffering": "4 of 49",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep172026",
+   "name": "POLO",
+   "season": 2026,
+   "overlap": {
+    "34": 0.949,
+    "50": 0.94,
+    "64": 0.942
+   },
+   "over": {
+    "34": 0.017,
+    "50": 0.022,
+    "64": 0.044
+   },
+   "under": {
+    "34": 0.034,
+    "50": 0.039,
+    "64": 0.017
+   },
+   "drawnOverlap": {
+    "34": 0.95,
+    "64": 0.941
+   },
+   "cities": 4,
+   "citiesSame": 3,
+   "nhcFile": "September 30, 2026",
+   "reportsDiffering": "0 of 36",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "ep182026",
+   "name": "RACHEL",
+   "season": 2026,
+   "overlap": {
+    "34": 0.976,
+    "50": 0.94,
+    "64": 0.947
+   },
+   "over": {
+    "34": 0.018,
+    "50": 0.044,
+    "64": 0.031
+   },
+   "under": {
+    "34": 0.006,
+    "50": 0.019,
+    "64": 0.024
+   },
+   "drawnOverlap": {
+    "34": 0.977,
+    "64": 0.94
+   },
+   "cities": 0,
+   "citiesSame": 0,
+   "nhcFile": "October 11, 2026",
+   "reportsDiffering": "0 of 54",
+   "strayPiecesDropped": 0
+  },
+  {
+   "id": "al092026",
+   "name": "ISAIAS",
+   "season": 2026,
+   "overlap": {
+    "34": 0.976,
+    "50": 0.979,
+    "64": 0.928
+   },
+   "over": {
+    "34": 0.016,
+    "50": 0.016,
+    "64": 0.051
+   },
+   "under": {
+    "34": 0.008,
+    "50": 0.006,
+    "64": 0.025
+   },
+   "drawnOverlap": {
+    "34": 0.974,
+    "64": 0.92
+   },
+   "cities": 6,
+   "citiesSame": 6,
+   "nhcFile": "October 10, 2026",
+   "reportsDiffering": "0 of 13",
+   "strayPiecesDropped": 0
+  }
+ ]
+}

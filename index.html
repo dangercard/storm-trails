@@ -4,8 +4,36 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Storm Tracks</title>
+    <title>%VITE_APP_NAME%</title>
     <meta name="description" content="Every tropical cyclone on record, worldwide since 1842: paths, strengths and dates on a map." />
+    <script>
+      // Start the storm index and the tracks the first view needs downloading now, alongside the app's code, rather
+      // than one after the other once it has run (src/data/storms.ts fetches the same files and picks these up).
+      // The decades are the ones App fetches for the seasons in the address (from/to), or for the default last ten
+      // years, and for a chosen storm (its id starts with the year it formed). A season is named for the year it
+      // ends, so its first storms can start the year before.
+      (function () {
+        var q = new URLSearchParams(location.search);
+        var now = new Date().getUTCFullYear();
+        var from = Number(q.get('from')) || now - 9;
+        var to = Number(q.get('to')) || now;
+        var decade = function (y) { return Math.floor(y / 10) * 10; };
+        var files = ['storms.json'];
+        for (var d = Math.max(1840, decade(from - 1)); d <= Math.min(decade(to), decade(now)); d += 10) {
+          files.push('tracks/' + d + '.json');
+        }
+        var storm = /^(\d{4})/.exec(q.get('storm') || '');
+        if (storm && files.indexOf('tracks/' + decade(+storm[1]) + '.json') < 0) files.push('tracks/' + decade(+storm[1]) + '.json');
+        files.forEach(function (f) {
+          var link = document.createElement('link');
+          link.rel = 'preload';
+          link.as = 'fetch';
+          link.crossOrigin = 'anonymous';
+          link.href = '/data/' + f;
+          document.head.appendChild(link);
+        });
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
