@@ -35,7 +35,7 @@ the script uses a frozen copy of NCEI's file of 2026-10-27 on Hugging Face, chec
 `.github/workflows/update-data.yml` runs every Monday (and on demand, from the repository's Actions tab): it downloads
 the latest IBTrACS from NCEI (never the frozen copy), rebuilds the data, fetches sea temperatures for new or changed
 storms, runs the tests and the site build, and commits `public/data` and `data/sst` if anything changed. A push to the
-main branch is what Cloudflare Pages deploys, so the site updates itself. If NCEI is down or a test fails, nothing is
+`master` branch is what Cloudflare Pages deploys, so the site updates itself. If NCEI is down or a test fails, nothing is
 committed and GitHub emails the repository's owner; the site keeps the last good data. A data test failing after an
 IBTrACS update can be a real revision (a storm re-analysed), worth a look before changing the test.
 `scripts/build-data.mjs` explains what's kept (main tracks, 6-hourly points) and how wind and category are chosen.
