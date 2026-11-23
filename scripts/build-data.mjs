@@ -9,7 +9,9 @@
 //   names/<lang>.json   countries' and cities' names in another language, where they differ from the English
 //   tracks/<decade>.json  each storm's track points, a decade per file, loaded when the timeline reaches it
 //   radii/<decade>.json   how far out 34, 50 and 64 kt winds reached around each report, where an agency estimated
-//                       it (from about 2000), for "winds reached" in the place report and the chosen storm's footprint
+//                       it (from about 2000), for "winds reached" in the place report and the chosen storm's footprint;
+//                       and how far 12 ft seas reached (US agencies, from about 2004), for the footprint:
+//                       { wind: { sid: columns }, seas: { sid: columns } }, columns as scripts/encode.mjs writes them
 //
 // What's kept and how strength is decided (the site's About panel says the same):
 // - Only each storm's main track: the "spur" tracks (alternate positions where agencies disagree on a split or
@@ -20,14 +22,18 @@
 //   (often a 10-minute average, which reads lower). Pressure the same way.
 // - Category is the Saffir-Simpson scale IBTrACS gives (USA_SSHS), or, where it has none, worked out from that wind.
 // - Alongside it, the regional agency's own class and wind, where the official scale isn't Saffir-Simpson (regionalOf).
+// - The sea temperature under each report, the day before (NOAA OISST, from 1981), where npm run data:sst has fetched
+//   it; see scripts/sst.mjs.
 //
 //   npm run data:build
 import { topology } from 'topojson-server';
 import { quantize } from 'topojson-client';
-import { createReadStream, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { createReadStream, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { gunzipSync } from 'node:zlib';
 import { createInterface } from 'node:readline';
-import { categoryOf, CAT, num, radiiOf, regionalOf } from './classify.mjs';
+import { categoryOf, CAT, num, radiiOf, regionalOf, seasOf } from './classify.mjs';
 import { encodeRadii, encodeTrack } from './encode.mjs';
+import { SST_OUT, sstAt } from './sst.mjs';
 import { countryAt, countryName, countryShapes, crossings } from './countries.mjs';
 
 const IN = 'data/raw/ibtracs.ALL.list.v04r01.csv';
@@ -107,6 +113,7 @@ for await (const line of lines) {
     nature,
     land: num(c[ix.DIST2LAND]) === 0,
     radii: radiiOf(get),
+    seas: seasOf(get),
     regional: regionalOf(get),
     basin,
   });
@@ -117,8 +124,10 @@ const isFiller = (p) => p.minute === 0 && p.hour % 6 === 3;
 
 const index = [];
 const decades = new Map();
-/** decade -> { sid: [point index, 12 radii, point index, 12 radii, …] } for the reports that have radii */
+/** decade -> { wind: { sid: columns }, seas: { sid: columns } } for the storms with radii (see encode.mjs) */
 const radiiByDecade = new Map();
+/** How many storms have the sea temperature under them */
+let withSst = 0;
 const hit = new Set();
 
 for (const s of storms.values()) {
@@ -203,6 +212,11 @@ for (const s of storms.values()) {
     moves,
   });
 
+  // The sea temperature under each report, where npm run data:sst has fetched it (storms from 1981)
+  const sstFile = `${SST_OUT}/${s.sid}.json.gz`;
+  const sst = existsSync(sstFile) ? JSON.parse(gunzipSync(readFileSync(sstFile))) : null;
+  if (sst) withSst++;
+
   // The track, by column (see encode.mjs)
   const decade = Math.floor(new Date(start * 3_600_000).getUTCFullYear() / 10) * 10;
   if (!decades.has(decade)) decades.set(decade, {});
@@ -216,14 +230,18 @@ for (const s of storms.values()) {
       cat: p.cat,
       regional: p.regional?.code ?? 0,
       regionalWind: p.regional?.wind ?? 0,
+      sst: sst ? sstAt(sst, p.lat, p.lon, p.t) : null,
     })),
   );
 
-  // Radii by the point's place in the track above, so the site lines the two up
+  // Radii by the point's place in the track above, so the site lines the two up: the winds', and apart from them the
+  // seas' (some reports have seas but no wind radii, as a storm weakens)
   const radii = pts.flatMap((p, i) => (p.radii ? [[i, p.radii]] : []));
-  if (radii.length) {
-    if (!radiiByDecade.has(decade)) radiiByDecade.set(decade, {});
-    radiiByDecade.get(decade)[s.sid] = encodeRadii(radii);
+  const seas = pts.flatMap((p, i) => (p.seas ? [[i, p.seas]] : []));
+  if (radii.length || seas.length) {
+    if (!radiiByDecade.has(decade)) radiiByDecade.set(decade, { wind: {}, seas: {} });
+    if (radii.length) radiiByDecade.get(decade).wind[s.sid] = encodeRadii(radii);
+    if (seas.length) radiiByDecade.get(decade).seas[s.sid] = encodeRadii(seas);
   }
 }
 
@@ -340,4 +358,4 @@ for (const lang of NAME_LANGUAGES) {
 
 for (const [decade, tracks] of decades) writeFileSync(`${OUT}/tracks/${decade}.json`, JSON.stringify(tracks));
 for (const [decade, radii] of radiiByDecade) writeFileSync(`${OUT}/radii/${decade}.json`, JSON.stringify(radii));
-console.log(`${index.length} storms, ${decades.size} decades, ${hit.size} countries hit → ${OUT}`);
+console.log(`${index.length} storms, ${decades.size} decades, ${hit.size} countries hit, ${withSst} with sea temperatures → ${OUT}`);

@@ -3,7 +3,7 @@
  * agency's class, checked at every threshold from both sides, on reports made up with only the columns that matter.
  */
 import { describe, expect, it } from 'vitest';
-import { AGENCY, CAT, catFromWind, categoryOf, radiiOf, regionalOf } from '../scripts/classify.mjs';
+import { AGENCY, CAT, catFromWind, categoryOf, radiiOf, regionalOf, seasOf } from '../scripts/classify.mjs';
 import { REGIONAL, regional } from '../src/data/categories';
 
 /** A report with these columns (any other is blank, as in IBTrACS) */
@@ -71,6 +71,18 @@ describe('wind extents (radii)', () => {
   });
   it('is null when no agency estimated them', () => {
     expect(radiiOf(report({ USA_WIND: 100 }))).toBeNull();
+  });
+});
+
+describe('12 ft seas', () => {
+  it('reads the four quarters, a blank among filled ones as none', () => {
+    expect(seasOf(report({ USA_SEAHGT: 12, USA_SEARAD_NE: 150, USA_SEARAD_SE: 120, USA_SEARAD_SW: '', USA_SEARAD_NW: 90 }))).toEqual([
+      150, 120, 0, 90,
+    ]);
+  });
+  it('is null with no estimate, or for any height but 12 ft', () => {
+    expect(seasOf(report({ USA_SEAHGT: 12 }))).toBeNull();
+    expect(seasOf(report({ USA_SEAHGT: 8, USA_SEARAD_NE: 150 }))).toBeNull();
   });
 });
 

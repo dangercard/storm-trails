@@ -12,8 +12,15 @@ let worker: Worker | null = null;
 let next = 0;
 const waiting = new Map<number, (fc: GeoJSON.FeatureCollection | null) => void>();
 
-/** The footprint of a track (a feature per strength: { kt: 34 } and { kt: 64 }), or null when it has no radii */
-export function footprint(points: TrackPoint[], radii: (Radii | null)[]): Promise<GeoJSON.FeatureCollection | null> {
+/**
+ * The footprint of a track (a feature per strength of winds, { kt: 34 } and { kt: 64 }, and for 12 ft seas,
+ * { seas: 12 }), or null when it has no radii
+ */
+export function footprint(
+  points: TrackPoint[],
+  radii: (Radii | null)[] | null,
+  seas: (Radii | null)[] | null,
+): Promise<GeoJSON.FeatureCollection | null> {
   if (!worker) {
     worker = new FootprintWorker();
     worker.onmessage = (e: MessageEvent<{ id: number; footprint: GeoJSON.FeatureCollection | null }>) => {
@@ -24,7 +31,7 @@ export function footprint(points: TrackPoint[], radii: (Radii | null)[]): Promis
   const id = next++;
   return new Promise((resolve) => {
     waiting.set(id, resolve);
-    worker!.postMessage({ id, points, radii });
+    worker!.postMessage({ id, points, radii, seas });
   });
 }
 

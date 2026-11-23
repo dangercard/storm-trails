@@ -163,6 +163,10 @@ export const en = {
         'service has its own scale, such as Japan’s or India’s, its class is shown too.',
       'How far the winds reached comes from forecasters’ estimates, which start around 2000. They are drawn the ' +
         'way the US National Hurricane Center draws its wind maps, and match NHC’s maps to within a few percent.',
+      'Sea temperatures under the storms come from NOAA’s daily satellite record, from 1981, and show the water a ' +
+        'day before each storm reached it.',
+      'Rough seas (waves of 12 ft, 3.7 m, or more) are US forecasters’ estimates, for the Atlantic and East Pacific ' +
+        'from about 2004.',
       'Before satellites (around 1966), storms that stayed at sea were often missed, and many old storms have no ' +
         'wind recorded.',
     ],
@@ -236,10 +240,26 @@ export const en = {
     windFieldText: (ts: number, strongest: number | null, term: Term) =>
       `Tropical-storm-force winds up to ${ts} km from the centre` +
       (strongest ? `; ${term === 'typhoon' ? 'typhoon' : 'hurricane'}-force up to ${strongest} km` : ''),
+    /** Under the wind field, for a provisional storm that reached 64 kt but whose record has only 34 kt extents so far */
+    windFieldPending: (term: Term) =>
+      `${term === 'typhoon' ? 'Typhoon' : 'Hurricane'}-force extents aren’t in the record yet: the warning center’s ` +
+      'final record comes out after the season.',
     noEstimate: 'no estimate',
     /** The key to the shaded wind footprint on the map */
     footprint: 'Shaded on the map: where its winds reached',
     footprint34: 'Tropical-storm-force (34 kt+)',
+    /** The sea temperature under the centre (see TrackPoint.sst) */
+    seaChart: 'Sea temperature under the centre (°C)',
+    seaChartLabel: 'Sea temperature over time',
+    seaChartNote:
+      'The water a day before the storm reached it (NOAA’s daily satellite record). Tropical cyclones usually need ' +
+      '26 °C or warmer to strengthen.',
+    /** In a point's popup */
+    seaTemp: (c: number, f: number) => `Sea ${fixed1.format(c)} °C · ${whole.format(f)} °F`,
+    /** How far seas of 12 ft or more reached (the US agencies' estimates) */
+    seas: 'Rough seas',
+    seasText: (km: number) => `Seas of 12 ft (3.7 m) or more up to ${km} km from the centre`,
+    footprintSeas: 'Seas of 12 ft (3.7 m) or more',
     footprint64: (term: Term) => `${term === 'typhoon' ? 'Typhoon' : 'Hurricane'}-force (64 kt+)`,
   },
 

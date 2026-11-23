@@ -38,8 +38,8 @@ describe('tracks', () => {
     ];
     const pts = unpack(storm(), cols);
     expect(pts).toEqual([
-      { t: 1000, lat: 12.1, lon: -50.2, wind: 30, pres: 1008, cat: -1, regional: 0, regionalWind: null },
-      { t: 1006, lat: 12.5, lon: -51, wind: null, pres: null, cat: -9, regional: 16, regionalWind: 125 },
+      { t: 1000, lat: 12.1, lon: -50.2, wind: 30, pres: 1008, cat: -1, regional: 0, regionalWind: null, sst: null },
+      { t: 1006, lat: 12.5, lon: -51, wind: null, pres: null, cat: -9, regional: 16, regionalWind: 125, sst: null },
     ]);
     // Once per track: the same array back, so filters don't rebuild every point
     expect(unpack(storm(), cols)).toBe(pts);
@@ -56,7 +56,7 @@ describe('tracks', () => {
   it('lines radii up with their reports, in km, null where there are none', () => {
     const pts = unpack(storm(), [[0, 60, 60], [100, 10, 10], [-500, -10, -10], [40, 50, 60]]);
     // One entry, for point 1: 34 kt 100/90/80/70 nmi, 50 kt NE 50 (the 64 kt columns left off)
-    const r = radiiOf(pts, { [storm().id]: [[1], [100], [90], [80], [70], [50]] }, storm().id)!;
+    const r = radiiOf(pts, { wind: { [storm().id]: [[1], [100], [90], [80], [70], [50]] } }, storm().id)!;
     expect(r[0]).toBeNull();
     expect(r[2]).toBeNull();
     expect(r[1]![0]).toBeCloseTo(185.2);
@@ -148,7 +148,7 @@ describe('downloads', () => {
 
   it('gives each report’s time in UTC to the minute, and longitudes within ±180°', () => {
     expect(isoTime(1000.5)).toBe('1970-02-11T16:30Z');
-    const pts: TrackPoint[] = [{ t: 1000, lat: 10, lon: 190, wind: 60, pres: null, cat: 0, regional: 0, regionalWind: null }];
+    const pts: TrackPoint[] = [{ t: 1000, lat: 10, lon: 190, wind: 60, pres: null, cat: 0, regional: 0, regionalWind: null, sst: 28.4 }];
     expect(rows(pointsCsv([{ storm: storm(), points: pts }]))[1]).toContain(',10,-170,60,,Tropical storm,,,');
   });
 
@@ -165,7 +165,7 @@ describe('downloads', () => {
 
 describe('wind footprint shapes', () => {
   const union = polygonClipping.union as unknown as Union;
-  const pts: TrackPoint[] = [0, 1, 2].map((i) => ({ t: i * 6, lat: 20, lon: -60 + i, wind: 100, pres: null, cat: 3, regional: 0, regionalWind: null }));
+  const pts: TrackPoint[] = [0, 1, 2].map((i) => ({ t: i * 6, lat: 20, lon: -60 + i, wind: 100, pres: null, cat: 3, regional: 0, regionalWind: null, sst: null }));
   /** Whether a point is inside a (multi)polygon, by crossings */
   const inside = (g: GeoJSON.Geometry, lon: number, lat: number) => {
     const polys = g.type === 'Polygon' ? [g.coordinates] : g.type === 'MultiPolygon' ? g.coordinates : [];
@@ -195,6 +195,14 @@ describe('wind footprint shapes', () => {
   it('draws only the strengths the storm had', () => {
     const fc = buildFootprint(pts, pts.map(() => [150, 150, 150, 150, 0, 0, 0, 0, 0, 0, 0, 0]), union)!;
     expect(fc.features.map((f) => f.properties!.kt)).toEqual([34]);
+  });
+
+  it('outlines where 12 ft seas reached, apart from the winds', () => {
+    const fc = buildFootprint(pts, null, union, pts.map(() => [300, 300, 300, 300]))!;
+    expect(fc.features.map((f) => f.properties)).toEqual([{ seas: 12 }]);
+    const seasArea = fc.features[0].geometry;
+    expect(inside(seasArea, -59, 20 - 250 / 110.57)).toBe(true);
+    expect(inside(seasArea, -59, 20 - 350 / 110.57)).toBe(false);
   });
 
   it('is nothing without radii', () => {

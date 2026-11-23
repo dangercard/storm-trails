@@ -11,6 +11,7 @@
     "preview": "vite preview",
     "data:fetch": "node scripts/fetch-data.mjs",
     "data:build": "node scripts/build-data.mjs",
+    "data:sst": "node scripts/fetch-sst.mjs",
     "data": "npm run data:fetch && npm run data:build",
     "check:swaths": "node scripts/check-swaths.mjs"
   },

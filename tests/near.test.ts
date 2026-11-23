@@ -10,7 +10,7 @@ const KM_LAT = 110.57;
 
 /** A report at hour t */
 const pt = (t: number, lat: number, lon: number, wind: number | null = 60, cat = 0): TrackPoint => ({
-  t, lat, lon, wind, pres: null, cat, regional: 0, regionalWind: null,
+  t, lat, lon, wind, pres: null, cat, regional: 0, regionalWind: null, sst: null,
 });
 /** A track along a line of latitude, a report every 6 hours */
 const along = (lat: number, lons: number[], wind: number | null = 60, cat = 0) => lons.map((lon, i) => pt(i * 6, lat, lon, wind, cat));

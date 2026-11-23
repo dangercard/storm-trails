@@ -72,37 +72,47 @@ function hull(points: Point[]): Ring {
 }
 
 /**
- * The footprint of a track: a feature per strength the storm had ({ kt: 34 } or { kt: 64 }), or null when it has no
- * radii. Stretches with no radii at either end are left out.
+ * The footprint of a track: a feature for each strength of winds the storm had ({ kt: 34 }, { kt: 64 }), and, given
+ * the seas' radii, one for where seas of 12 ft or more reached ({ seas: 12 }); null when there's none of these.
+ * Stretches with no radii at either end are left out.
  */
-export function buildFootprint(points: TrackPoint[], radii: (Radii | null)[], union: Union): GeoJSON.FeatureCollection | null {
-  const swept: Ring[][] = BANDS.map(() => []);
-  const last = points.length - 1;
-  for (let i = 0; i < Math.max(1, last); i++) {
-    const a = points[i];
-    const b = points[Math.min(i + 1, last)];
-    const ra = radii[i];
-    const rb = radii[Math.min(i + 1, last)];
-    if (!ra || !rb) continue;
-    BANDS.forEach(({ offset }, n) => {
+export function buildFootprint(
+  points: TrackPoint[],
+  radii: (Radii | null)[] | null,
+  union: Union,
+  seas: (Radii | null)[] | null = null,
+): GeoJSON.FeatureCollection | null {
+  /** The area swept by one set of quarter radii (where they sit in each entry: at), report to report */
+  const sweep = (rs: (Radii | null)[] | null, at: number): Ring[] => {
+    const rings: Ring[] = [];
+    if (!rs) return rings;
+    const last = points.length - 1;
+    for (let i = 0; i < Math.max(1, last); i++) {
+      const a = points[i];
+      const b = points[Math.min(i + 1, last)];
+      const ra = rs[i];
+      const rb = rs[Math.min(i + 1, last)];
+      if (!ra || !rb) continue;
       for (let s = 0; s < 4; s++) {
-        const [qa, qb] = [offset + s, offset + ((s + 1) % 4)];
+        const [qa, qb] = [at + s, at + ((s + 1) % 4)];
         if (!ra[qa] && !ra[qb] && !rb[qa] && !rb[qb]) continue;
         const ring = hull([...sector(a.lat, a.lon, s, ra[qa], ra[qb]), ...sector(b.lat, b.lon, s, rb[qa], rb[qb])]);
-        if (ring.length >= 4) swept[n].push(ring);
+        if (ring.length >= 4) rings.push(ring);
       }
-    });
-  }
-  if (!swept[0].length) return null;
-
+    }
+    return rings;
+  };
   const features: GeoJSON.Feature[] = [];
-  BANDS.forEach(({ kt }, n) => {
-    if (!swept[n].length) return;
-    features.push({
-      type: 'Feature',
-      properties: { kt },
-      geometry: { type: 'MultiPolygon', coordinates: union(...swept[n].map((ring) => [ring])) },
-    });
-  });
-  return { type: 'FeatureCollection', features };
+  const add = (rings: Ring[], properties: Record<string, number>) => {
+    if (rings.length) {
+      features.push({
+        type: 'Feature',
+        properties,
+        geometry: { type: 'MultiPolygon', coordinates: union(...rings.map((ring) => [ring])) },
+      });
+    }
+  };
+  for (const { kt, offset } of BANDS) add(sweep(radii, offset), { kt });
+  add(sweep(seas, 0), { seas: 12 });
+  return features.length ? { type: 'FeatureCollection', features } : null;
 }

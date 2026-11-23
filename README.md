@@ -23,6 +23,8 @@ without the 333 MB download. To rebuild them:
 
 ```sh
 npm run data        # data:fetch (download to data/raw, git-ignored) then data:build (write public/data)
+npm run data:sst    # sea temperatures round each storm since 1981 (hours the first time; kept in data/raw/sst)
+npm run data:build  # again, to put them into the tracks
 ```
 
 `data:fetch` tries NCEI first. NCEI's download folder has been offline since late October 2026; when it is, the
@@ -41,7 +43,14 @@ each report (the US agencies' estimates, else Météo-France La Réunion's or Au
 report uses them for "Winds that reached" (`src/data/near.ts`, `reach`), and the chosen storm's shaded wind
 footprint is built from them in a worker (`src/data/footprintShapes.ts`). Both hold each quarter's estimate in the
 middle of the quarter and blend it into the next quarter's towards the edges, as NHC draws its wind swaths.
-`npm run check:swaths` compares the result with NHC's own swaths (`docs/wind-swath-check.md`).
+`npm run check:swaths` compares the result with NHC's own swaths (`docs/wind-swath-check.md`). The same files hold how
+far seas of 12 ft (3.7 m) or more reached, the US agencies' estimates for the Atlantic and East Pacific from about
+2004, drawn as a dashed outline on the chosen storm's footprint.
+
+The sea temperature under each report comes from NOAA's OISST v2.1 (daily, 0.25°, from September 1981), fetched by
+`npm run data:sst` from NOAA's CoastWatch ERDDAP server: a box round each stretch of each storm's track, every other
+grid point (0.5°). The build takes the water a day before the storm reached each point (a strong storm cools the water
+it passes over), and none over land (`scripts/sst.mjs`). It's the line under the wind chart in the storm panel.
 
 Strength is the Saffir-Simpson category everywhere (colours, filters). Alongside it, where the region's official
 agency has its own scale, the site shows that agency's class and its own wind: the Japan Meteorological Agency, the

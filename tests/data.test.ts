@@ -81,7 +81,7 @@ describe('the tracks', () => {
       for (const s of storms.filter((x) => decadeOf(x) === d)) {
         expect(file[s.id], s.id).toBeDefined();
         // Columns of one value per report each (up to 8; those left off the end are empty)
-        expect(file[s.id].length, s.id).toBeLessThanOrEqual(8);
+        expect(file[s.id].length, s.id).toBeLessThanOrEqual(9);
         expect(new Set(file[s.id].map((c) => c.length)).size, s.id).toBe(1);
         const pts = unpack(s, file[s.id]);
         expect(pts[0].t).toBeCloseTo(s.start, 1);
@@ -211,6 +211,67 @@ describe('winds that reached places, for well-known storms', () => {
 
   it('has no estimate for a storm from before the estimates began (Andrew, 1992)', async () => {
     expect(await reachAt(point(25.79, -80.22), 'ANDREW', 1992)).toBeNull();
+  });
+});
+
+describe('the sea under the storms', () => {
+  it('has a temperature for nearly every storm since 1982, and none before 1981', async () => {
+    let since = 0;
+    let withSst = 0;
+    for (const s of storms.filter((x) => x.season >= 1975 && x.season <= 2025)) {
+      const pts = await track(s);
+      const any = pts.some((p) => p.sst !== null);
+      if (s.start < Date.UTC(1981, 8, 2) / 3_600_000) expect(any, s.id).toBe(false);
+      else if (s.season >= 1982) {
+        since++;
+        if (any) withSst++;
+      }
+    }
+    expect(withSst / since).toBeGreaterThan(0.95);
+  });
+
+  it('keeps sea temperatures between -2 and 35 °C', async () => {
+    for (const s of storms.filter((x) => x.season >= 2015 && x.season <= 2017)) {
+      for (const p of await track(s)) {
+        if (p.sst === null) continue;
+        expect(p.sst, s.id).toBeGreaterThan(-2.5);
+        expect(p.sst, s.id).toBeLessThan(35);
+      }
+    }
+  });
+
+  it('Otis (2023) had water of 29.5 °C or more ahead of it before landfall', async () => {
+    const pts = await track(find('OTIS', 2023));
+    expect(Math.max(...pts.map((p) => p.sst ?? 0))).toBeGreaterThanOrEqual(29.5);
+  });
+
+  it('Ian (2022) crossed 29–31 °C water in the Gulf, and has none while over Cuba and Florida', async () => {
+    const pts = await track(find('IAN', 2022));
+    const gulf = pts.filter((p) => p.lat > 23 && p.lat < 26.3 && p.lon < -82.3 && p.sst !== null);
+    expect(gulf.length).toBeGreaterThan(2);
+    for (const p of gulf) {
+      expect(p.sst!).toBeGreaterThanOrEqual(29);
+      expect(p.sst!).toBeLessThanOrEqual(31.5);
+    }
+    // Inland Florida, the day after landfall
+    const inland = pts.filter((p) => p.lat > 27.2 && p.lat < 28.3 && p.lon > -81.6 && p.lon < -80.9);
+    expect(inland.length).toBeGreaterThan(0);
+    for (const p of inland) expect(p.sst).toBeNull();
+  });
+});
+
+describe('rough seas', () => {
+  it('has 12 ft seas for an Atlantic hurricane since 2004, not for a West Pacific typhoon', async () => {
+    const { seasOf } = await import('../src/data/storms');
+    const ian = find('IAN', 2022);
+    const ianSeas = seasOf(await track(ian), await loadRadii(decadeOf(ian)), ian.id);
+    expect(ianSeas?.filter(Boolean).length).toBeGreaterThan(10);
+    // At most reports with both, the seas reach farther than its tropical-storm-force winds, as seas spread beyond them
+    const winds = (await radiiFor(ian, await track(ian)))!;
+    const both = ianSeas!.flatMap((r, i) => (r && winds[i] ? [[Math.max(...r), Math.max(...winds[i]!.slice(0, 4))]] : []));
+    expect(both.filter(([seas, wind]) => seas > wind).length).toBeGreaterThan(both.length / 2);
+    const haiyan = find('HAIYAN', 2013);
+    expect(seasOf(await track(haiyan), await loadRadii(decadeOf(haiyan)), haiyan.id)).toBeNull();
   });
 });
 

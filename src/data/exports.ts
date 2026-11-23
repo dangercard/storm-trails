@@ -132,6 +132,7 @@ export const pointsCsv = (tracks: Track[]) =>
       'regional_class',
       'regional_agency',
       'regional_wind_kt',
+      'sea_temp_c',
     ],
     tracks.flatMap(({ storm, points }) =>
       points.map((p) => [
@@ -146,6 +147,7 @@ export const pointsCsv = (tracks: Track[]) =>
         label(p.cat),
         ...local(p.regional),
         p.regionalWind,
+        p.sst,
       ]),
     ),
   );

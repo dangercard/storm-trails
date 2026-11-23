@@ -21,6 +21,7 @@ import {
   loadRadii,
   radiiOf,
   type RadiiFile,
+  seasOf,
   type Storm,
   toDate,
   type TrackFile,
@@ -229,14 +230,19 @@ const App: React.FC = () => {
     () => (selected && selectedPoints ? radiiFor(selected, selectedPoints) : null),
     [selected, selectedPoints, radiiFor],
   );
+  /** How far 12 ft seas reached round the chosen storm (North Atlantic and East Pacific, from about 2004) */
+  const selectedSeas = useMemo(
+    () => (selected && selectedPoints ? seasOf(selectedPoints, radiiFiles[decadeOf(selected)], selected.id) : null),
+    [selected, selectedPoints, radiiFiles],
+  );
   useEffect(() => {
-    if (!selectedPoints || !selectedRadii) return;
+    if (!selectedPoints || (!selectedRadii && !selectedSeas)) return;
     let live = true;
-    footprint(selectedPoints, selectedRadii).then((fc) => live && setShaded({ points: selectedPoints, footprint: fc }));
+    footprint(selectedPoints, selectedRadii, selectedSeas).then((fc) => live && setShaded({ points: selectedPoints, footprint: fc }));
     return () => {
       live = false;
     };
-  }, [selectedPoints, selectedRadii]);
+  }, [selectedPoints, selectedRadii, selectedSeas]);
   const selectedFootprint = shaded && shaded.points === selectedPoints ? shaded.footprint : null;
 
   /** Every storm, strongest first (then earliest): sorted once, so the list just takes the first that are shown */
@@ -350,6 +356,7 @@ const App: React.FC = () => {
             storm={selected}
             points={selectedPoints}
             radii={selectedRadii}
+            seas={selectedSeas}
             shaded={Boolean(selectedFootprint)}
             onClose={() => setSelectedId(null)}
           />

@@ -23,6 +23,9 @@ Open these with `?lang=es` (or the language's code) added, and read every word:
      - Freddy (`2023036S12117`), Météo-France
      - Yasi (`2011028S13180`), BoM
      - Winston (`2016041S14170`), Fiji
+   - For sea temperature and rough seas: Ian (`/?lang=es&from=2022&to=2022&min=0&storm=2022266N12294`). Read the
+     "Oleaje alto" row, the map key under it, the sea temperature chart and the note below it, and hover a dot over
+     water for the temperature line in the popup.
 3. **A place report:** `/?lang=es&from=1980&to=2026&min=0&country=Mexico&km=100&view=report`, and a city one:
    `/?lang=es&from=2004&to=2026&min=0&lat=25.788&lon=-80.224&place=Miami&km=50&view=report`. The text under the
    table ("How this is worked out") is the longest.
@@ -41,6 +44,15 @@ Open these with `?lang=es` (or the language's code) added, and read every word:
   the ones readers would recognize?
 - **"Reporte" vs "informe".** "Reporte" is used for a storm's 6-hourly position reports, and "informe" for the place
   report.
+- **Sea temperature and rough seas.**
+  - *Oleaje alto* for the 12 ft seas, as NHC's Spanish advisories say. The height is given in feet first, with metres
+    after ("olas de 12 pies (3.7 m) o más"), because 12 ft is the forecasters' own threshold. Would readers rather
+    see metres alone?
+  - *Temperatura del mar bajo el centro* for the chart, and *Mar 29.5 °C · 85 °F* in the map popup.
+  - *Intensificarse* for a storm strengthening ("suelen necesitar 26 °C o más para intensificarse").
+  - The two new points in "Acerca de los datos" (sea temperature and rough seas).
+- **The note on a provisional storm** with no typhoon- or hurricane-force extents yet ("Las extensiones de los vientos
+  con fuerza de tifón aún no están en el registro…"). See it on Ragasa: `/?lang=es&from=2025&to=2025&min=0&storm=2025260N13138`.
 - **Regional scales** (`regional.classes`). These are names, so they should match what each region's
   Spanish-language press uses:
   - JMA: *tifón muy fuerte*, *tifón violento*.

@@ -155,6 +155,10 @@ export const es: Messages = {
       'Hasta dónde llegaron los vientos viene de estimaciones de los pronosticadores, que empiezan alrededor del 2000. ' +
         'Se dibujan como dibuja sus mapas de viento el Centro Nacional de Huracanes de EE. UU., y coinciden con ellos ' +
         'con un margen de pocos puntos porcentuales.',
+      'Las temperaturas del mar bajo las tormentas vienen del registro satelital diario de la NOAA, desde 1981, y ' +
+        'muestran el agua un día antes de que llegara cada tormenta.',
+      'El oleaje alto (olas de 12 pies, 3.7 m, o más) son estimaciones de los pronosticadores de EE. UU., para el ' +
+        'Atlántico y el Pacífico Oriental desde alrededor del 2004.',
       'Antes de los satélites (alrededor de 1966), a menudo no se registraban las tormentas que se quedaban en el mar, ' +
         'y muchas tormentas antiguas no tienen datos de viento.',
     ],
@@ -222,9 +226,21 @@ export const es: Messages = {
     windFieldText: (ts: number, strongest: number | null, term: Term) =>
       `Vientos con fuerza de tormenta tropical hasta ${ts} km del centro` +
       (strongest ? `; con fuerza de ${storm64(term)} hasta ${strongest} km` : ''),
+    windFieldPending: (term: Term) =>
+      `Las extensiones de los vientos con fuerza de ${storm64(term)} aún no están en el registro: el registro final ` +
+      'del centro de avisos sale después de la temporada.',
     noEstimate: 'sin estimación',
     footprint: 'Sombreado en el mapa: hasta dónde llegaron sus vientos',
     footprint34: 'Fuerza de tormenta tropical (34 kt+)',
+    seaChart: 'Temperatura del mar bajo el centro (°C)',
+    seaChartLabel: 'Temperatura del mar en el tiempo',
+    seaChartNote:
+      'El agua un día antes de que llegara la tormenta (registro satelital diario de la NOAA). Los ciclones ' +
+      'tropicales suelen necesitar 26 °C o más para intensificarse.',
+    seaTemp: (c: number, f: number) => `Mar ${fixed1.format(c)} °C · ${whole.format(f)} °F`,
+    seas: 'Oleaje alto',
+    seasText: (km: number) => `Olas de 12 pies (3.7 m) o más hasta ${km} km del centro`,
+    footprintSeas: 'Olas de 12 pies (3.7 m) o más',
     footprint64: (term: Term) => `Fuerza de ${storm64(term)} (64 kt+)`,
   },
 

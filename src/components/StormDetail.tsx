@@ -9,19 +9,25 @@ interface StormDetailProps {
   points: TrackPoint[] | null;
   /** How far its winds reached at each report, or null when no agency estimated it */
   radii: (Radii | null)[] | null;
+  /** How far its 12 ft seas reached at each report, or null when there are no estimates */
+  seas: (Radii | null)[] | null;
   /** Whether its wind footprint is shaded on the map */
   shaded: boolean;
   onClose: () => void;
 }
 
 /** One storm: what it peaked at, when, where, and its wind over its life */
-const StormDetail: React.FC<StormDetailProps> = ({ storm, points, radii, shaded, onClose }) => {
+const StormDetail: React.FC<StormDetailProps> = ({ storm, points, radii, seas, shaded, onClose }) => {
   const { m, list } = useI18n();
   const peak = category(storm.peakCat);
   const days = (storm.end - storm.start) / 24;
   const notRecorded = <span className="muted">{m.storm.notRecorded}</span>;
   const ts = widest(radii, 0);
   const hurricane = widest(radii, 8);
+  const roughSeas = widest(seas, 0);
+  // A provisional record (IBTrACS's stand-in until the agency's final one, from real-time messages) often has only the
+  // 34 kt extents, even for a storm that reached 64 kt
+  const pending = Boolean(storm.provisional && ts && !hurricane && storm.peakWind !== null && storm.peakWind >= 64);
   const local = storm.regional ? regional(storm.regional) : null;
   // "Hurricane-force" or "typhoon-force", by the basin it was in at its strongest
   const strongest = points?.reduce<TrackPoint | null>((a, p) => (p.wind !== null && (!a || p.wind > a.wind!) ? p : a), null);
@@ -85,24 +91,41 @@ const StormDetail: React.FC<StormDetailProps> = ({ storm, points, radii, shaded,
         {ts !== null && (
           <>
             <dt>{m.storm.windField}</dt>
-            <dd>{m.storm.windFieldText(Math.round(ts), hurricane ? Math.round(hurricane) : null, term)}</dd>
+            <dd>
+              {m.storm.windFieldText(Math.round(ts), hurricane ? Math.round(hurricane) : null, term)}
+              {pending && <span className="muted pending-note">{m.storm.windFieldPending(term)}</span>}
+            </dd>
           </>
         )}
+        {roughSeas ? (
+          <>
+            <dt>{m.storm.seas}</dt>
+            <dd>{m.storm.seasText(Math.round(roughSeas))}</dd>
+          </>
+        ) : null}
       </dl>
       {shaded && (
         <div className="footprint-key small">
           <span className="muted">{m.storm.footprint}</span>
-          <span>
-            <i className="footprint-swatch ts" /> {m.storm.footprint34}
-          </span>
+          {ts ? (
+            <span>
+              <i className="footprint-swatch ts" /> {m.storm.footprint34}
+            </span>
+          ) : null}
           {hurricane ? (
             <span>
               <i className="footprint-swatch hurricane" /> {m.storm.footprint64(term)}
             </span>
           ) : null}
+          {roughSeas ? (
+            <span>
+              <i className="footprint-swatch seas" /> {m.storm.footprintSeas}
+            </span>
+          ) : null}
         </div>
       )}
       {points ? <WindChart points={points} /> : <p className="muted">{m.storm.loadingTrack}</p>}
+      {points && <SeaChart points={points} />}
       <p className="muted small">{m.storm.hint}</p>
       {points && (
         <p className="downloads small">
@@ -189,6 +212,60 @@ const WindChart: React.FC<{ points: TrackPoint[] }> = ({ points }) => {
           <circle key={i} cx={x(p.t)} cy={y(p.wind!)} r={1.8} fill={category(p.cat).color} />
         ))}
       </svg>
+    </figure>
+  );
+};
+
+/** Storms usually need water at least this warm (°C) to strengthen */
+const WARM_ENOUGH = 26;
+
+/** The sea temperature under the centre over the storm's life, where there's a reading (from 1981, over water) */
+const SeaChart: React.FC<{ points: TrackPoint[] }> = ({ points }) => {
+  const { m } = useI18n();
+  const known = points.filter((p) => p.sst !== null);
+  if (known.length < 2) return null;
+  const t0 = points[0].t;
+  const t1 = points[points.length - 1].t;
+  const low = Math.floor(Math.min(WARM_ENOUGH - 4, ...known.map((p) => p.sst!)));
+  const high = Math.ceil(Math.max(WARM_ENOUGH + 4, ...known.map((p) => p.sst!)));
+  const h = 90;
+  const x = (t: number) => PAD.left + ((t - t0) / Math.max(1, t1 - t0)) * (W - PAD.left - PAD.right);
+  const y = (c: number) => PAD.top + (1 - (c - low) / (high - low)) * (h - PAD.top - PAD.bottom);
+  // A line for each run of reports with a reading (over land there's none)
+  const runs: TrackPoint[][] = [];
+  let run: TrackPoint[] = [];
+  for (const p of points) {
+    if (p.sst === null) {
+      if (run.length) runs.push(run);
+      run = [];
+    } else run.push(p);
+  }
+  if (run.length) runs.push(run);
+  return (
+    <figure className="chart">
+      <figcaption>{m.storm.seaChart}</figcaption>
+      <svg viewBox={`0 0 ${W} ${h}`} role="img" aria-label={m.storm.seaChartLabel}>
+        {[low, high].map((c) => (
+          <g key={c}>
+            <line x1={PAD.left} x2={W - PAD.right} y1={y(c)} y2={y(c)} className="chart-grid" />
+            <text x={PAD.left - 4} y={y(c) + 3} className="chart-label" textAnchor="end">
+              {c}
+            </text>
+          </g>
+        ))}
+        <line x1={PAD.left} x2={W - PAD.right} y1={y(WARM_ENOUGH)} y2={y(WARM_ENOUGH)} className="chart-threshold" />
+        <text x={PAD.left - 4} y={y(WARM_ENOUGH) + 3} className="chart-label" textAnchor="end">
+          {WARM_ENOUGH}
+        </text>
+        {runs.map((r, i) => (
+          <polyline
+            key={i}
+            className="chart-line sea"
+            points={r.map((p) => `${x(p.t).toFixed(1)},${y(p.sst!).toFixed(1)}`).join(' ')}
+          />
+        ))}
+      </svg>
+      <p className="muted small">{m.storm.seaChartNote}</p>
     </figure>
   );
 };

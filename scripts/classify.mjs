@@ -59,6 +59,20 @@ export function radiiOf(get) {
 }
 
 /**
+ * How far seas of 12 feet (3.7 m) or more reached in each quarter round the centre (NE, SE, SW, NW), in nautical
+ * miles, or null where there's no estimate. Only the US agencies give it, in the North Atlantic and East Pacific, from
+ * about 2004; a blank among filled quarters is taken as 0, as for the wind radii. Any other wave height is ignored
+ * (IBTrACS has only 12 ft).
+ */
+export function seasOf(get) {
+  const height = get('USA_SEAHGT').trim();
+  if (height && height !== '12') return null;
+  const r = QUARTERS.map((q) => num(get(`USA_SEARAD_${q}`)));
+  if (r.every((v) => v === null)) return null;
+  return r.map((v) => v ?? 0);
+}
+
+/**
  * The class the region's official agency (the WMO's regional centre or warning centre, IBTrACS's WMO_AGENCY) gives a
  * report on its own scale, alongside Saffir-Simpson: { code: agency * 10 + class, wind: that agency's wind in kt }, or
  * null where there's none (the North Atlantic and East Pacific, whose official scale is Saffir-Simpson itself; the

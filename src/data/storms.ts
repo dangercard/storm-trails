@@ -43,6 +43,8 @@ export interface TrackPoint {
   /** The regional agency's class (see regional() in categories.ts), 0 for none, and that agency's wind (kt) */
   regional: number;
   regionalWind: number | null;
+  /** The sea surface temperature under it the day before (°C, NOAA OISST, from 1981), null where unknown or over land */
+  sst: number | null;
 }
 
 interface Index {
@@ -152,7 +154,12 @@ export const loadCountries = () =>
  */
 export type TrackFile = Record<string, (number | null)[][]>;
 /** A decade's radii, by storm id: columns, as scripts/encode.mjs writes them (see radiiOf) */
-export type RadiiFile = Record<string, number[][]>;
+export type RadiiFile = {
+  /** How far 34, 50 and 64 kt winds reached: 13 columns (the point index, 12 radii) per storm */
+  wind?: Record<string, number[][]>;
+  /** How far 12 ft seas reached: 5 columns (the point index, 4 radii) per storm */
+  seas?: Record<string, number[][]>;
+};
 
 const decades = new Map<number, Promise<TrackFile>>();
 
@@ -196,24 +203,41 @@ const NMI = 1.852;
 const radiiCache = new WeakMap<number[][], (Radii | null)[]>();
 
 /**
- * A track's radii, one entry per point (null where no agency estimated them), from its decade's radii file; null when
- * the storm has none at all. The file holds 13 columns per storm (see scripts/encode.mjs): the point index, then the
- * 12 radii in nautical miles, each as the change from the entry before; columns left off the end are all zero.
+ * Radii, one entry per point (null where there's no estimate), in km, from a storm's columns in a radii file (see
+ * scripts/encode.mjs): the point index, then n radii in nautical miles, each as the change from the entry before;
+ * columns left off the end are all zero
  */
-export function radiiOf(points: TrackPoint[], file: RadiiFile | undefined, id: string): (Radii | null)[] | null {
-  const cols = file?.[id];
-  if (!cols) return null;
+function decodeRadii(points: TrackPoint[], cols: number[][], n: number): (Radii | null)[] {
   let out = radiiCache.get(cols);
   if (!out) {
     out = new Array<Radii | null>(points.length).fill(null);
-    const sums = new Array<number>(13).fill(0);
+    const sums = new Array<number>(n + 1).fill(0);
     for (let i = 0; i < cols[0].length; i++) {
-      for (let k = 0; k < 13; k++) sums[k] += cols[k]?.[i] ?? 0;
+      for (let k = 0; k <= n; k++) sums[k] += cols[k]?.[i] ?? 0;
       out[sums[0]] = sums.slice(1).map((nmi) => nmi * NMI);
     }
     radiiCache.set(cols, out);
   }
   return out;
+}
+
+/**
+ * A track's wind radii, one entry per point (12 numbers in km; null where no agency estimated them), from its
+ * decade's radii file; null when the storm has none at all
+ */
+export function radiiOf(points: TrackPoint[], file: RadiiFile | undefined, id: string): (Radii | null)[] | null {
+  const cols = file?.wind?.[id];
+  return cols ? decodeRadii(points, cols, 12) : null;
+}
+
+/**
+ * How far seas of 12 feet (3.7 m) or more reached at each point, in km, in each quarter round the centre (NE, SE, SW,
+ * NW; null where there's no estimate), from the decade's radii file; null when the storm has none (the US agencies
+ * give it, in the North Atlantic and East Pacific, from about 2004)
+ */
+export function seasOf(points: TrackPoint[], file: RadiiFile | undefined, id: string): (Radii | null)[] | null {
+  const cols = file?.seas?.[id];
+  return cols ? decodeRadii(points, cols, 4) : null;
 }
 
 const decadeCache = new WeakMap<Storm, number>();
@@ -241,7 +265,8 @@ const unpacked = new WeakMap<(number | null)[][], TrackPoint[]>();
 /**
  * Unpacks a track from its columns (see scripts/encode.mjs): time, latitude and longitude in tenths, each as the
  * change from the report before; wind (0 unknown); pressure as the change from the last report with one (null
- * unknown); category, regional class and regional wind. Columns left off the end are all zero (pressure: unknown).
+ * unknown); category, regional class and regional wind; sea temperature in tenths of a °C, as the change from the last
+ * report with one (null unknown). Columns left off the end are all zero (pressure, sea temperature: unknown).
  * Once per track, so changing a filter doesn't rebuild every point of every storm in view; the result is shared, so
  * not to be changed.
  */
@@ -254,12 +279,15 @@ export function unpack(storm: Storm, cols: (number | null)[][]): TrackPoint[] {
   let lat = 0;
   let lon = 0;
   let pres = 0;
+  let sst = 0;
   for (let i = 0; i < cols[0].length; i++) {
     tenths += at(0, i);
     lat += at(1, i);
     lon += at(2, i);
     const dp = cols[4]?.[i];
     if (dp !== null && dp !== undefined) pres += dp;
+    const ds = cols[8]?.[i];
+    if (ds !== null && ds !== undefined) sst += ds;
     out.push({
       t: storm.start + tenths / 10,
       lat: lat / 10,
@@ -269,6 +297,7 @@ export function unpack(storm: Storm, cols: (number | null)[][]): TrackPoint[] {
       cat: at(5, i),
       regional: at(6, i),
       regionalWind: at(7, i) || null,
+      sst: ds === null || ds === undefined ? null : sst / 10,
     });
   }
   unpacked.set(cols, out);

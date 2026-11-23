@@ -342,6 +342,12 @@
   color: var(--muted);
 }
 
+.pending-note {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.8rem;
+}
+
 .stats {
   display: grid;
   grid-template-columns: auto 1fr;
@@ -390,6 +396,19 @@
   fill: none;
   stroke: var(--text);
   stroke-width: 1.2;
+  opacity: 0.7;
+}
+
+/* The sea temperature under the storm, and the 26 °C storms usually need */
+.chart-line.sea {
+  stroke: #7aa7ff;
+  opacity: 0.9;
+}
+
+.chart-threshold {
+  stroke: #ff8f20;
+  stroke-width: 0.8;
+  stroke-dasharray: 3 2;
   opacity: 0.7;
 }
 
@@ -1103,6 +1122,12 @@ html:has(.report) #root {
 .footprint-swatch.hurricane {
   border-color: rgb(255 193 64 / 0.55);
   background: rgb(255 193 64 / 0.3);
+}
+
+/* Where 12 ft seas reached: a dashed outline on the map */
+.footprint-swatch.seas {
+  border: 1.5px dashed #7aa7ff;
+  background: none;
 }
 
 /* The report's "Winds that reached" section */

@@ -139,6 +139,8 @@ const LANDFALL_EDGE = '#9fb4cf';
 const NEAR = '#e8eef7';
 /** The chosen storm's wind footprint: tropical-storm-force and hurricane-force, the colours of those categories */
 const FOOTPRINT = ['match', ['get', 'kt'], 64, '#ffc140', '#00faf4'];
+/** Where its 12 ft seas reached: a dashed outline, as it mostly takes in the 34 kt winds' area and more */
+const SEAS = '#7aa7ff';
 
 /**
  * Hides a track the filters leave out (feature state `off`) or, while playing, whose storm hasn't formed yet
@@ -303,6 +305,7 @@ const StormMap: React.FC<StormMapProps> = ({
           id: 'footprint-fill',
           type: 'fill',
           source: 'footprint',
+          filter: ['has', 'kt'],
           paint: { 'fill-color': FOOTPRINT as never, 'fill-opacity': ['match', ['get', 'kt'], 64, 0.2, 0.1] },
         },
         firstLabel,
@@ -312,7 +315,18 @@ const StormMap: React.FC<StormMapProps> = ({
           id: 'footprint-edge',
           type: 'line',
           source: 'footprint',
+          filter: ['has', 'kt'],
           paint: { 'line-color': FOOTPRINT as never, 'line-width': 1, 'line-opacity': 0.55 },
+        },
+        firstLabel,
+      );
+      map.addLayer(
+        {
+          id: 'footprint-seas',
+          type: 'line',
+          source: 'footprint',
+          filter: ['has', 'seas'],
+          paint: { 'line-color': SEAS, 'line-width': 1.2, 'line-opacity': 0.8, 'line-dasharray': [3, 2] },
         },
         firstLabel,
       );
@@ -425,7 +439,7 @@ const StormMap: React.FC<StormMapProps> = ({
       const popup = new Popup({ closeButton: false, closeOnClick: false, className: 'point-popup', offset: 8 });
       map.on('mousemove', 'chosen-points', (e: MapMouseEvent & { features?: { properties: unknown }[] }) => {
         const p = e.features?.[0]?.properties as
-          | { t: number; wind: number; pres: number; cat: number; regional: number; regionalWind: number }
+          | { t: number; wind: number; pres: number; cat: number; regional: number; regionalWind: number; sst: number }
           | undefined;
         if (!p) return;
         map.getCanvas().style.cursor = 'pointer';
@@ -441,7 +455,9 @@ const StormMap: React.FC<StormMapProps> = ({
         popup
           .setLngLat(e.lngLat)
           .setHTML(
-            `<strong>${formatDate(p.t, true)}</strong><br>${categoryLabel(p.cat)}<br>${wind}${p.pres ? `<br>${m.units.mb(p.pres)}` : ''}${local}`,
+            `<strong>${formatDate(p.t, true)}</strong><br>${categoryLabel(p.cat)}<br>${wind}${p.pres ? `<br>${m.units.mb(p.pres)}` : ''}${local}` +
+              // The sea under it (-99: none)
+              (p.sst > -50 ? `<br><span class="regional-note">${m.storm.seaTemp(p.sst, (p.sst * 9) / 5 + 32)}</span>` : ''),
           )
           .addTo(map);
       });
@@ -650,6 +666,7 @@ const StormMap: React.FC<StormMapProps> = ({
                   cat: p.cat,
                   regional: p.regional,
                   regionalWind: p.regionalWind ?? 0,
+                  sst: p.sst ?? -99,
                 },
                 geometry: { type: 'Point', coordinates: [p.lon, p.lat] },
               })),
