@@ -23,12 +23,21 @@ without the 333 MB download. To rebuild them:
 
 ```sh
 npm run data        # data:fetch (download to data/raw, git-ignored) then data:build (write public/data)
-npm run data:sst    # sea temperatures round each storm since 1981 (hours the first time; kept in data/raw/sst)
+npm run data:sst    # sea temperatures round each storm since 1981 (kept in data/sst; only new or changed storms)
 npm run data:build  # again, to put them into the tracks
 ```
 
-`data:fetch` tries NCEI first. NCEI's download folder has been offline since late October 2026; when it is, the
-script uses a frozen copy of NCEI's file of 2026-10-27 on Hugging Face, checked against its recorded sha256.
+`data:fetch` tries NCEI first. NCEI's download folder was offline from late October to mid November 2026; when it is,
+the script uses a frozen copy of NCEI's file of 2026-10-27 on Hugging Face, checked against its recorded sha256.
+
+### Weekly update
+
+`.github/workflows/update-data.yml` runs every Monday (and on demand, from the repository's Actions tab): it downloads
+the latest IBTrACS from NCEI (never the frozen copy), rebuilds the data, fetches sea temperatures for new or changed
+storms, runs the tests and the site build, and commits `public/data` and `data/sst` if anything changed. A push to the
+main branch is what Cloudflare Pages deploys, so the site updates itself. If NCEI is down or a test fails, nothing is
+committed and GitHub emails the repository's owner; the site keeps the last good data. A data test failing after an
+IBTrACS update can be a real revision (a storm re-analysed), worth a look before changing the test.
 `scripts/build-data.mjs` explains what's kept (main tracks, 6-hourly points) and how wind and category are chosen.
 
 Landfall countries are worked out at build time against Natural Earth country shapes (the `world-atlas` package;
@@ -50,7 +59,9 @@ far seas of 12 ft (3.7 m) or more reached, the US agencies' estimates for the At
 The sea temperature under each report comes from NOAA's OISST v2.1 (daily, 0.25°, from September 1981), fetched by
 `npm run data:sst` from NOAA's CoastWatch ERDDAP server: a box round each stretch of each storm's track, every other
 grid point (0.5°). The build takes the water a day before the storm reached each point (a strong storm cools the water
-it passes over), and none over land (`scripts/sst.mjs`). It's the line under the wind chart in the storm panel.
+it passes over), and none over land (`scripts/sst.mjs`). ERDDAP's copy of OISST lacks some days (about half of
+1993–1997, and a few since), so where the day before is missing, the build uses the latest day within a week before
+it. It's the line under the wind chart in the storm panel.
 
 Strength is the Saffir-Simpson category everywhere (colours, filters). Alongside it, where the region's official
 agency has its own scale, the site shows that agency's class and its own wind: the Japan Meteorological Agency, the

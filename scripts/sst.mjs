@@ -3,7 +3,7 @@
 // x.875 degrees; every other one is fetched (0.5°), on the x.125 and x.625 points (so the last ones east and north are
 // 179.625 or 359.625 and 89.625).
 
-export const SST_OUT = 'data/raw/sst';
+export const SST_OUT = 'data/sst';
 /** Days in one box: a stretch of track this long, so a long-lived storm doesn't make one huge box */
 const DAYS_PER_BOX = 6;
 const STEP = 0.5;
@@ -62,20 +62,31 @@ export function boxesFor(points, firstDay, lastDay) {
   return boxes;
 }
 
+/** How many days back to look when OISST has no map for the day before (ERDDAP's copy lacks about half the days of
+ * 1993–1997, and a few since): the water changes little in a week, and the storm hadn't got there yet */
+const DAYS_BACK = 7;
+
+/** Where a day's map is among a box's values, or -1: by the days ERDDAP sent (days), else a day for each of nt */
+const dayIndex = (b, day) => (b.days ? b.days.indexOf(day) : day >= b.day0 && day < b.day0 + b.nt ? day - b.day0 : -1);
+
 /**
- * The sea temperature (°C, to 0.1) at a report: the nearest fetched grid point (within 0.25°), on the day before.
- * Null where there's none: over land or sea ice (OISST has no value there), or outside the boxes and days fetched.
+ * The sea temperature (°C, to 0.1) at a report: the nearest fetched grid point (within 0.25°), on the day before, or
+ * the latest day within DAYS_BACK before that where OISST has none. Null where there's none: over land or sea ice
+ * (OISST has no value there), or outside the boxes and days fetched.
  */
 export function sstAt(file, lat, lon, t) {
-  const day = dayBefore(t);
-  for (const b of file?.boxes ?? []) {
-    if (day < b.day0 || day >= b.day0 + b.nt) continue;
-    const i = Math.round((lat - b.lat0) / STEP);
-    const j = Math.round(((b.grid === 'pm180' ? wrapPM(lon) : wrap360(lon)) - b.lon0) / STEP);
-    if (i < 0 || i >= b.nlat || j < 0 || j >= b.nlon) continue;
-    const v = b.v[(day - b.day0) * b.nlat * b.nlon + i * b.nlon + j];
-    // Land and ice: no value (OISST marks them -9.99; sea water is never colder than about -2 °C)
-    return v === null || v === undefined || v < -50 ? null : v / 10;
+  const want = dayBefore(t);
+  for (let day = want; day >= want - DAYS_BACK; day--) {
+    for (const b of file?.boxes ?? []) {
+      const k = dayIndex(b, day);
+      if (k < 0) continue;
+      const i = Math.round((lat - b.lat0) / STEP);
+      const j = Math.round(((b.grid === 'pm180' ? wrapPM(lon) : wrap360(lon)) - b.lon0) / STEP);
+      if (i < 0 || i >= b.nlat || j < 0 || j >= b.nlon) continue;
+      const v = b.v[k * b.nlat * b.nlon + i * b.nlon + j];
+      // Land and ice: no value (OISST marks them -9.99; sea water is never colder than about -2 °C)
+      return v === null || v === undefined || v < -50 ? null : v / 10;
+    }
   }
   return null;
 }

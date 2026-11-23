@@ -17,5 +17,5 @@
     "noUnusedParameters": true,
     "erasableSyntaxOnly": true
   },
-  "include": ["tests", "scripts/classify.mjs", "scripts/encode.mjs", "src/vite-env.d.ts"]
+  "include": ["tests", "scripts/classify.mjs", "scripts/encode.mjs", "scripts/sst.mjs", "src/vite-env.d.ts"]
 }

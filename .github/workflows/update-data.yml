@@ -1,0 +1,59 @@
+# Rebuilds the site's data from the latest IBTrACS every week, and commits it if anything changed. Cloudflare Pages
+# deploys the push. See "Weekly update" in README.md.
+name: Update data
+
+on:
+  schedule:
+    - cron: '0 9 * * 1' # Mondays, 09:00 UTC
+  workflow_dispatch: # "Run workflow" on the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Download the latest IBTrACS (never the frozen copy)
+        run: npm run data:fetch -- --force --latest
+
+      - name: Build the data
+        run: npm run data:build
+
+      - name: Fetch sea temperatures for new or changed storms
+        run: npm run data:sst
+
+      - name: Build the data again, with the sea temperatures
+        run: npm run data:build
+
+      - name: Test
+        run: npm test
+
+      - name: Check the site builds
+        run: npm run build
+
+      - name: Commit if anything changed
+        run: |
+          git add public/data data/sst
+          if git diff --cached --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "Update data: IBTrACS of $(date -u +%Y-%m-%d)"
+          git push

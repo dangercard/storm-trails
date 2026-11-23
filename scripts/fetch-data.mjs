@@ -1,13 +1,15 @@
 // Downloads the raw data into data/raw/:
 //
 // - The IBTrACS v04r01 "ALL" CSV (every storm, every basin). NOAA NCEI's own folder is tried first. When it's offline
-//   (it has been since late Oct 2026), a frozen copy of NCEI's file of 2026-10-27 is used instead, pinned to one
-//   revision and checked against the sha256 its maintainer recorded, so it's byte for byte what NCEI published.
+//   (as it was from late Oct to mid Nov 2026), a frozen copy of NCEI's file of 2026-10-27 is used instead, pinned to
+//   one revision and checked against the sha256 its maintainer recorded, so it's byte for byte what NCEI published.
 // - Natural Earth's populated places (v5.1.2), the cities the "Near" search offers, with their names in other
 //   languages; and its countries (admin 0), for the countries' names in other languages and their ISO codes.
 //
 //   npm run data:fetch            download (each file skipped when it's already there)
 //   npm run data:fetch -- --force download again
+//   npm run data:fetch -- --force --latest   download again, and fail rather than fall back to the frozen copy (the
+//                                 weekly update, .github/workflows/update-data.yml, so it never goes back in time)
 import { createHash } from 'node:crypto';
 import { createWriteStream, existsSync, mkdirSync, renameSync, statSync } from 'node:fs';
 import { Readable } from 'node:stream';
@@ -28,6 +30,7 @@ const FILES = [
         name: 'frozen copy of NCEI 2026-10-27 (Hugging Face, yuiseki/ibtracs-v04r01-2026-10)',
         url: `https://huggingface.co/datasets/yuiseki/ibtracs-v04r01-2026-10/resolve/3407efc2b694b9aeaa679982715a5e8a33146c7c/raw/20261027/${IBTRACS}`,
         sha256: 'aec31872c58d4509d1bc5f9746bea6074ec208a2c3aba4ceff32bacd0b2059e2',
+        frozen: true,
       },
     ],
   },
@@ -61,6 +64,10 @@ async function download({ file, sources }) {
     return true;
   }
   for (const source of sources) {
+    if (source.frozen && process.argv.includes('--latest')) {
+      console.log(`Not trying the ${source.name}: --latest`);
+      continue;
+    }
     console.log(`Trying ${source.name}…`);
     let res;
     try {

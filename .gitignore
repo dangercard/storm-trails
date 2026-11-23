@@ -23,5 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
-# IBTrACS download (hundreds of MB); npm run data:fetch
+# IBTrACS and Natural Earth downloads (hundreds of MB); npm run data:fetch. (The sea temperatures, data/sst, are
+# kept: fetching them all again takes an hour.)
 data/raw
