@@ -156,9 +156,34 @@ const StormDetail: React.FC<StormDetailProps> = ({ storm, points, radii, seas, s
   );
 };
 
+// The charts are drawn about as wide as they show in the panel (300 units ≈ 300 px), so text sizes in App.css
+// (.chart-label) are close to their size on screen
 const W = 300;
-const H = 130;
-const PAD = { left: 30, right: 6, top: 8, bottom: 20 };
+const H = 150;
+const PAD = { left: 34, right: 8, top: 10, bottom: 24 };
+
+/** Marks along the time axis: a mark every 1, 2 or 5 days, by how long the storm lasted */
+function dayTicks(t0: number, t1: number) {
+  const totalDays = (t1 - t0) / 24;
+  const every = totalDays > 20 ? 5 : totalDays > 8 ? 2 : 1;
+  const ticks: number[] = [];
+  for (let d = 0; d <= totalDays; d += every) ticks.push(d);
+  return ticks;
+}
+
+/** The days along the bottom of a chart h units tall */
+const DayAxis: React.FC<{ t0: number; t1: number; h: number; x: (t: number) => number }> = ({ t0, t1, h, x }) => {
+  const { m } = useI18n();
+  return (
+    <>
+      {dayTicks(t0, t1).map((d) => (
+        <text key={d} x={x(t0 + d * 24)} y={h - 7} className="chart-label" textAnchor={d === 0 ? 'start' : 'middle'}>
+          {d === 0 ? m.storm.day0 : d}
+        </text>
+      ))}
+    </>
+  );
+};
 
 /** Wind over the storm's life, on the category bands */
 const WindChart: React.FC<{ points: TrackPoint[] }> = ({ points }) => {
@@ -171,10 +196,6 @@ const WindChart: React.FC<{ points: TrackPoint[] }> = ({ points }) => {
   const x = (t: number) => PAD.left + ((t - t0) / Math.max(1, t1 - t0)) * (W - PAD.left - PAD.right);
   const y = (k: number) => PAD.top + (1 - k / top) * (H - PAD.top - PAD.bottom);
   const bands = TROPICAL.map((c, i) => ({ c, lo: c.fromKt!, hi: TROPICAL[i + 1]?.fromKt ?? top }));
-  const totalDays = (t1 - t0) / 24;
-  const tickEvery = totalDays > 20 ? 5 : totalDays > 8 ? 2 : 1;
-  const ticks: number[] = [];
-  for (let d = 0; d <= totalDays; d += tickEvery) ticks.push(d);
 
   return (
     <figure className="chart">
@@ -194,22 +215,18 @@ const WindChart: React.FC<{ points: TrackPoint[] }> = ({ points }) => {
         {[34, 64, 96, 137].map((k) => (
           <g key={k}>
             <line x1={PAD.left} x2={W - PAD.right} y1={y(k)} y2={y(k)} className="chart-grid" />
-            <text x={PAD.left - 4} y={y(k) + 3} className="chart-label" textAnchor="end">
+            <text x={PAD.left - 5} y={y(k) + 3.5} className="chart-label" textAnchor="end">
               {k}
             </text>
           </g>
         ))}
-        {ticks.map((d) => (
-          <text key={d} x={x(t0 + d * 24)} y={H - 6} className="chart-label" textAnchor="middle">
-            {d === 0 ? m.storm.day0 : d}
-          </text>
-        ))}
+        <DayAxis t0={t0} t1={t1} h={H} x={x} />
         <polyline
           className="chart-line"
           points={winds.map((p) => `${x(p.t).toFixed(1)},${y(p.wind!).toFixed(1)}`).join(' ')}
         />
         {winds.map((p, i) => (
-          <circle key={i} cx={x(p.t)} cy={y(p.wind!)} r={1.8} fill={category(p.cat).color} />
+          <circle key={i} cx={x(p.t)} cy={y(p.wind!)} r={2.2} fill={category(p.cat).color} />
         ))}
       </svg>
     </figure>
@@ -228,7 +245,7 @@ const SeaChart: React.FC<{ points: TrackPoint[] }> = ({ points }) => {
   const t1 = points[points.length - 1].t;
   const low = Math.floor(Math.min(WARM_ENOUGH - 4, ...known.map((p) => p.sst!)));
   const high = Math.ceil(Math.max(WARM_ENOUGH + 4, ...known.map((p) => p.sst!)));
-  const h = 90;
+  const h = 110;
   const x = (t: number) => PAD.left + ((t - t0) / Math.max(1, t1 - t0)) * (W - PAD.left - PAD.right);
   const y = (c: number) => PAD.top + (1 - (c - low) / (high - low)) * (h - PAD.top - PAD.bottom);
   // A line for each run of reports with a reading (over land there's none)
@@ -248,15 +265,16 @@ const SeaChart: React.FC<{ points: TrackPoint[] }> = ({ points }) => {
         {[low, high].map((c) => (
           <g key={c}>
             <line x1={PAD.left} x2={W - PAD.right} y1={y(c)} y2={y(c)} className="chart-grid" />
-            <text x={PAD.left - 4} y={y(c) + 3} className="chart-label" textAnchor="end">
+            <text x={PAD.left - 5} y={y(c) + 3.5} className="chart-label" textAnchor="end">
               {c}
             </text>
           </g>
         ))}
         <line x1={PAD.left} x2={W - PAD.right} y1={y(WARM_ENOUGH)} y2={y(WARM_ENOUGH)} className="chart-threshold" />
-        <text x={PAD.left - 4} y={y(WARM_ENOUGH) + 3} className="chart-label" textAnchor="end">
+        <text x={PAD.left - 5} y={y(WARM_ENOUGH) + 3.5} className="chart-label threshold" textAnchor="end">
           {WARM_ENOUGH}
         </text>
+        <DayAxis t0={t0} t1={t1} h={h} x={x} />
         {runs.map((r, i) => (
           <polyline
             key={i}

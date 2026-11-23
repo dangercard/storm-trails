@@ -368,6 +368,10 @@
   margin: 0;
 }
 
+.chart + .chart {
+  margin-top: 14px;
+}
+
 .chart figcaption {
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -388,20 +392,28 @@
 }
 
 .chart-label {
-  fill: var(--muted);
-  font-size: 8px;
+  fill: var(--text);
+  opacity: 0.75;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.chart-label.threshold {
+  fill: #ff8f20;
+  opacity: 1;
 }
 
 .chart-line {
   fill: none;
   stroke: var(--text);
-  stroke-width: 1.2;
+  stroke-width: 1.4;
   opacity: 0.7;
 }
 
 /* The sea temperature under the storm, and the 26 °C storms usually need */
 .chart-line.sea {
   stroke: #7aa7ff;
+  stroke-width: 1.8;
   opacity: 0.9;
 }
 
