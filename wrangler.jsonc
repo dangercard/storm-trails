@@ -1,0 +1,10 @@
+// How Cloudflare publishes the site: the Worker "storm-trails" serves the built files in dist/ (npm run build) as
+// they are, with no code of its own. public/_headers (copied into dist/) sets their caching. Deployed by Cloudflare's
+// Git integration on each push to master.
+{
+  "name": "storm-trails",
+  "compatibility_date": "2025-09-01",
+  "assets": {
+    "directory": "./dist"
+  }
+}
